@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Скандинавия 2026 — Берлин → Норвегия → Швеция → Берлин</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & base ──────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --forest:#1B4332;--forest2:#2D5A41;--forest3:#3D7A55;
+  --amber:#B48C30;--amber2:#D4A840;
+  --cream:#F5F1E9;--cream2:#EDE8DC;
+  --dark:#1C1C1C;--mid:#5F7364;
+  --white:#FFFFFF;
+  --blue-lt:#D2E2F5;--blue-dk:#1E4E8C;
+  --green-lt:#D0EAC8;--green-dk:#236023;
+  --r:6px;
+  --shadow:0 2px 12px rgba(0,0,0,.10);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--dark);background:var(--cream);font-size:16px;line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ── Typography ────────────────────────────────────────────── */
+.serif{font-family:'Playfair Display',Georgia,serif}
+
+/* ── HERO ───────────────────────────────────────────────────── */
+.hero{
+  height:100vh;min-height:600px;
+  background:url('photos/day_00.jpg') center/cover no-repeat;
+  position:relative;display:flex;align-items:center;justify-content:center;text-align:center;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(27,67,50,.15) 0%,rgba(27,67,50,.55) 55%,rgba(27,67,50,.88) 100%);
+}
+.hero-inner{position:relative;z-index:1;color:var(--white);padding:2rem;max-width:760px}
+.hero-sup{
+  font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);margin-bottom:1.8rem;
+}
+.hero h1{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(3.5rem,11vw,8.5rem);font-weight:700;
+  letter-spacing:.06em;line-height:1;margin-bottom:.5rem;
+}
+.hero-line{width:60px;height:2px;background:var(--amber);margin:1.6rem auto}
+.hero-stats{
+  font-size:.95rem;letter-spacing:.15em;color:rgba(255,255,255,.8);
+}
+.hero-year{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:1.4rem;color:var(--amber2);margin-top:1.2rem;
+}
+.hero-scroll{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);display:flex;flex-direction:column;align-items:center;gap:.5rem;
+}
+.hero-scroll span{
+  width:1px;height:32px;background:rgba(255,255,255,.3);display:block;
+  animation:scrollPulse 1.6s ease-in-out infinite;
+}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:.8;transform:scaleY(1.2)}}
+
+/* ── STICKY NAV ─────────────────────────────────────────────── */
+.sticky-nav{
+  position:sticky;top:0;z-index:200;
+  background:var(--forest);
+  display:flex;align-items:center;gap:.35rem;
+  padding:.65rem 1.25rem;
+  overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
+  box-shadow:0 3px 10px rgba(0,0,0,.3);
+}
+.sticky-nav::-webkit-scrollbar{display:none}
+.sticky-nav a{
+  color:rgba(255,255,255,.65);font-size:.72rem;font-weight:500;
+  letter-spacing:.04em;white-space:nowrap;
+  padding:.28rem .65rem;border-radius:100px;
+  transition:all .2s;
+}
+.sticky-nav a:hover,.sticky-nav a.active{background:var(--amber);color:var(--white)}
+.nav-sep{width:1px;height:14px;background:rgba(255,255,255,.18);flex-shrink:0}
+
+/* ── SECTION WRAPPER ─────────────────────────────────────────── */
+.wrap{max-width:1140px;margin:0 auto;padding:0 1.75rem}
+.section{padding:4.5rem 0}
+
+.section-head{
+  display:flex;align-items:center;gap:1.2rem;margin-bottom:2.5rem;
+}
+.section-head h2{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(1.5rem,3vw,2rem);color:var(--forest);white-space:nowrap;
+}
+.section-head-line{flex:1;height:1px;background:linear-gradient(to right,var(--amber),transparent)}
+
+/* ── OVERVIEW TABLE ─────────────────────────────────────────── */
+.ov-table-wrap{overflow-x:auto;border-radius:var(--r);box-shadow:var(--shadow)}
+.ov-table{width:100%;border-collapse:collapse;font-size:.83rem;min-width:680px}
+.ov-table th{
+  background:var(--forest2);color:var(--white);
+  padding:.65rem .85rem;text-align:left;
+  font-weight:500;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
+}
+.ov-table td{
+  padding:.6rem .85rem;border-bottom:1px solid rgba(0,0,0,.055);vertical-align:middle;
+}
+.ov-table tr:nth-child(even) td{background:var(--cream)}
+.ov-table tr:nth-child(odd) td{background:var(--white)}
+.ov-table tr:hover td{background:rgba(180,140,48,.07);transition:background .15s}
+.ov-table tr td:first-child{width:32px}
+.day-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;background:var(--forest);color:var(--white);
+  border-radius:50%;font-size:.72rem;font-weight:600;flex-shrink:0;
+}
+.tag{
+  display:inline-block;font-size:.6rem;font-weight:600;
+  padding:.1rem .4rem;border-radius:3px;letter-spacing:.04em;
+  text-transform:uppercase;margin-left:.35rem;vertical-align:middle;
+}
+.tag-f{background:var(--blue-lt);color:var(--blue-dk)}
+.tag-o{background:var(--green-lt);color:var(--green-dk)}
+.ov-night{color:var(--mid);font-size:.78rem}
+
+/* ── MAP NOTE ─────────────────────────────────────────────────── */
+.map-note{
+  background:var(--cream2);border-left:3px solid var(--amber);
+  border-radius:var(--r);padding:1rem 1.25rem;margin-top:1.25rem;
+  font-size:.82rem;color:var(--mid);line-height:1.5;
+}
+.map-note strong{color:var(--forest);font-weight:600}
+
+/* ── FERRY SECTION ───────────────────────────────────────────── */
+.ferry-section{background:var(--forest);color:var(--white)}
+.ferry-section .section-head h2{color:var(--white)}
+.ferry-section .section-head-line{background:linear-gradient(to right,var(--amber),transparent)}
+.ferry-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;
+}
+.ferry-card{
+  background:rgba(255,255,255,.08);border-left:3px solid var(--amber2);
+  padding:1.25rem 1.5rem;border-radius:var(--r);
+}
+.ferry-n{font-size:.65rem;font-weight:600;color:var(--amber2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.35rem}
+.ferry-cross{font-size:1.05rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+.ferry-op{font-size:.78rem;color:rgba(255,255,255,.6);margin-bottom:.5rem}
+.ferry-dur{
+  display:inline-block;background:var(--amber);color:var(--white);
+  font-size:.7rem;font-weight:600;padding:.2rem .55rem;border-radius:3px;
+  letter-spacing:.04em;margin-bottom:.6rem;
+}
+.ferry-notes{
+  font-size:.8rem;color:rgba(255,255,255,.7);
+  border-top:1px solid rgba(255,255,255,.12);padding-top:.6rem;margin-top:.4rem;line-height:1.5;
+}
+
+/* ── DAY SECTIONS ────────────────────────────────────────────── */
+.day-section{border-bottom:3px solid var(--cream2)}
+
+.day-photo{
+  width:100%;height:58vh;min-height:320px;max-height:540px;
+  background-size:cover;background-position:center;
+  position:relative;display:flex;align-items:flex-end;
+}
+.day-photo-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 35%,rgba(27,67,50,.85) 100%);
+}
+.day-photo-text{
+  position:relative;z-index:1;
+  padding:2rem 1.75rem;width:100%;max-width:1140px;margin:0 auto;
+}
+.day-label{
+  font-size:.65rem;font-weight:600;letter-spacing:.22em;
+  color:var(--amber2);text-transform:uppercase;margin-bottom:.3rem;
+}
+.day-meta{font-size:.78rem;color:rgba(255,255,255,.65);margin-bottom:.4rem}
+.day-title-text{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(1.5rem,3.5vw,2.4rem);color:var(--white);line-height:1.2;font-weight:700;
+}
+
+.day-content{padding:2.5rem 0 2rem}
+.day-subtitle{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:1.1rem;color:var(--forest);font-style:italic;margin-bottom:1rem;
+}
+.day-dash{width:36px;height:2px;background:var(--amber);margin-bottom:1.75rem}
+
+.day-body{
+  display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;margin-bottom:1.75rem;
+}
+@media(max-width:720px){.day-body{grid-template-columns:1fr}}
+
+.day-desc p{
+  color:#383838;margin-bottom:.9rem;line-height:1.8;font-size:.93rem;
+}
+
+.activities-label{
+  font-size:.68rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--forest);margin-bottom:.85rem;
+}
+.activity-row{
+  display:flex;align-items:flex-start;gap:.65rem;
+  margin-bottom:.6rem;font-size:.87rem;color:#424242;line-height:1.55;
+}
+.act-dot{
+  width:6px;height:6px;background:var(--amber);border-radius:50%;
+  flex-shrink:0;margin-top:.48rem;
+}
+
+.callouts{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.25rem}
+.callout{
+  padding:.9rem 1.1rem;border-radius:var(--r);font-size:.83rem;line-height:1.55;
+}
+.callout-lbl{
+  font-size:.65rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:.3rem;display:block;
+}
+.callout-f{background:var(--blue-lt);border-left:3px solid var(--blue-dk)}
+.callout-f .callout-lbl{color:var(--blue-dk)}
+.callout-o{background:var(--green-lt);border-left:3px solid var(--green-dk)}
+.callout-o .callout-lbl{color:var(--green-dk)}
+
+.night-box{
+  background:var(--forest);color:var(--white);
+  padding:.9rem 1.25rem;border-radius:var(--r);
+  display:flex;align-items:baseline;gap:.85rem;flex-wrap:wrap;
+}
+.night-lbl{
+  font-size:.65rem;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--amber2);flex-shrink:0;
+}
+.night-val{font-size:.9rem}
+.night-hint{font-size:.75rem;color:rgba(255,255,255,.45);margin-left:auto}
+
+/* ── TIPS SECTION ────────────────────────────────────────────── */
+.tips-section{background:var(--forest)}
+.tips-section .section-head h2{color:var(--white)}
+.tips-section .section-head-line{background:linear-gradient(to right,var(--amber),transparent)}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1rem}
+.tips-card{background:rgba(255,255,255,.07);border-radius:var(--r)}
+.tips-head{
+  background:rgba(0,0,0,.2);padding:.75rem 1.2rem;border-radius:var(--r) var(--r) 0 0;
+  font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--amber2);
+}
+.tips-body{padding:1rem 1.2rem}
+.tip-row{
+  display:flex;align-items:flex-start;gap:.6rem;
+  padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.07);
+  font-size:.83rem;color:rgba(255,255,255,.75);line-height:1.5;
+}
+.tip-row:last-child{border-bottom:none}
+.tip-dot{
+  width:5px;height:5px;background:var(--amber);border-radius:50%;
+  flex-shrink:0;margin-top:.5rem;
+}
+
+/* ── FOOTER ─────────────────────────────────────────────────── */
+footer{
+  background:var(--dark);color:rgba(255,255,255,.4);
+  text-align:center;padding:2.25rem;font-size:.78rem;line-height:2;
+}
+footer em{color:var(--amber);font-style:normal}
+
+/* ── SCROLL FADE-IN ─────────────────────────────────────────── */
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <p class="hero-sup">Берлин &nbsp;·&nbsp; Норвегия &nbsp;·&nbsp; Швеция &nbsp;·&nbsp; Берлин</p>
+    <h1 class="serif">СКАНДИНАВИЯ</h1>
+    <div class="hero-line"></div>
+    <p class="hero-stats">12 дней &nbsp;·&nbsp; 4 человека &nbsp;·&nbsp; ~5 000 км &nbsp;·&nbsp; 2 страны</p>
+    <p class="hero-year">Лето 2026</p>
+  </div>
+  <div class="hero-scroll">прокрутить<span></span></div>
+</section>
+
+<!-- ════════════════ STICKY NAV ════════════════ -->
+<nav class="sticky-nav" id="sticky-nav">
+  <a href="#overview">Маршрут</a>
+  <div class="nav-sep"></div>
+  <a href="#ferries">Паромы</a>
+  <div class="nav-sep"></div>
+  <a href="#day-1">1</a><a href="#day-2">2</a><a href="#day-3">3</a>
+  <a href="#day-4">4</a><a href="#day-5">5</a><a href="#day-6">6</a>
+  <a href="#day-7">7</a><a href="#day-8">8</a><a href="#day-9">9</a>
+  <a href="#day-10">10</a><a href="#day-11">11</a><a href="#day-12">12</a>
+  <div class="nav-sep"></div>
+  <a href="#tips">Советы</a>
+</nav>
+
+<!-- ════════════════ OVERVIEW ════════════════ -->
+<section id="overview" class="section">
+<div class="wrap">
+  <div class="section-head">
+    <h2 class="serif">Маршрут одним взглядом</h2>
+    <div class="section-head-line"></div>
+  </div>
+  <div class="ov-table-wrap fade-in">
+  <table class="ov-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>День</th>
+        <th>Маршрут</th>
+        <th>В пути</th>
+        <th>Главное</th>
+        <th>Ночлег</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="day-badge">1</span></td>
+        <td><a href="#day-1">День 1</a></td>
+        <td>Берлин → Травемюнде</td>
+        <td>~3.5 ч</td>
+        <td>Балтика, посадка на паром <span class="tag tag-f">ПАРОМ</span></td>
+        <td class="ov-night">Каюта TT-Line</td>
+      </tr>
+      <tr>
+        <td><span class="day-badge">2</span></td>
+        <td><a href="#day-2">День 2</a></td>
+        <td>Треллеборг → оз. Ветерн</td>
+        <td>~3 ч</td>
+        <td>Шведский лес, парк Асснен</td>
+        <td class="ov-night">Коттедж Омберг</td>
+      </tr>
+      <tr>
+        <td><span class="day-badge">3</span></td>
+        <td><a href="#day-3">День 3</a></td>
+        <td>Ветерн → Даларна</td>
+        <td>~3 ч</td>
+        <td>Озеро Силян, первая рыбалка</td>
+        <td class="ov-night">Коттедж у Силяна</td>
+      </tr>
+      <tr>
+        <td><span class="day-badge">4</span></td>
+        <td><a href="#day-4">День 4</a></td>
+        <td>Даларна → Фемундсмарка (NO)</td>
+        <td>~3 ч</td>
+        <td>Граница, лесные треки <span class="tag tag-o">4x4</span></td>
+        <td class="ov-night">Wilderness-кабин</td>
+      </tr>
+      <tr>
+        <td><span class="day-badge">5</span></td>
+        <td><a href="#day-5">День 5</a></td>
+        <td>Фемундсмарка (весь день)</td>
+        <td>—</td>
+        <td>Рыбалка, баня, белая ночь</td>
+        <td class="ov-night">Wilderness-кабин</td>
+      </tr>
+      <tr>
+        <td><span class="day-badge">6</span></td>
+        <td><a href="#day-6">День 6</a></td>
+        <td>Фемундсмарка → Довре</td>
+        <td>~3.5 ч</td>
+        <td>Рёрус UNESCO, мускусные быки</td>
+        <td class="ov-night">Горная ферма</td>
+      </tr>
+      <tr>
+        <td><span class="day-badge">7</span></td>
+        <td><a href="#day-7">День 7</a></td>
+        <td>Довре → Гейрангер</td>
+        <td>~3 ч + 1 ч паром</td>
+        <td>Тролльстиген, фьорд <span class="tag tag-f">ПАРОМ</span></td>
+        <td class="ov-night">Долина Стрюн</td>
+      </tr>
+      <tr>
+        <td><span class="day-badge">8</span></td>
+        <td><a href="#day-8">День 8</a></td>
+        <td>Стрюн → Лустер</td>
+        <td>~3 ч</td>
+        <td>Ледник, горная грунтовка <span class="tag tag-o">4x4</span></td>
+        <td class="ov-night">Согне-фьорд</td>
+      </tr>
+      <tr>
+        <td><span class="day-badge">9</span></td>
+        <td><a href="#day-9">День 9</a></td>
+        <td>Лустер → Аурланн</td>
+        <td>~2 ч + 2 ч паром</td>
+        <td>Нерёй-фьорд UNESCO <span class="tag tag-f">ПАРОМ</span></td>
+        <td class="ov-night">Аурланн / Флом</td>
+      </tr>
+      <tr>
+        <td><span class="day-badge">10</span></td>
+        <td><a href="#day-10">День 10</a></td>
+        <td>Аурланн → Хардангер</td>
+        <td>~2.5 ч</td>
+        <td>Вёрингсфоссен, яблоневые сады</td>
+        <td class="ov-night">Улвик</td>
+      </tr>
+      <tr>
+        <td><span class="day-badge">11</span></td>
+        <td><a href="#day-11">День 11</a></td>
+        <td>Хардангер → Кристиансан</td>
+        <td>~4 ч</td>
+        <td>Сетесдален, паром домой <span class="tag tag-f">ПАРОМ</span> <span class="tag tag-o">4x4</span></td>
+        <td class="ov-night">Паром / Хиртсхальс</td>
+      </tr>
+      <tr>
+        <td><span class="day-badge">12</span></td>
+        <td><a href="#day-12">День 12</a></td>
+        <td>Хиртсхальс → Берлин</td>
+        <td>~7 ч</td>
+        <td>Финальный перегон домой</td>
+        <td class="ov-night">Берлин</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="map-note fade-in">
+    <strong>Маршрут на Google Maps:</strong>&nbsp;
+    Берлин → Travemünde → (паром) → Trelleborg → Lake Vättern → Dalarna/Siljan → Trysil → Femundsmarka → Røros → Dovre → Trollstigen → Geiranger → (паром) → Hellesylt → Stryn → Jostedalsbreen → Luster → Gudvangen → (паром) → Flåm → Aurland → Eidfjord → Ulvik → Setesdalen → Kristiansand → (паром) → Hirtshals → Берлин
+  </p>
+</div>
+</section>
+
+<!-- ════════════════ FERRIES ════════════════ -->
+<section id="ferries" class="section ferry-section">
+<div class="wrap">
+  <div class="section-head">
+    <h2 class="serif">Паромы: 4 переправы</h2>
+    <div class="section-head-line"></div>
+  </div>
+  <div class="ferry-grid">
+    <div class="ferry-card fade-in">
+      <p class="ferry-n">Переправа 1</p>
+      <p class="ferry-cross">Травемюнде → Треллеборг</p>
+      <p class="ferry-op">TT-Line / Stena Line</p>
+      <span class="ferry-dur">7–9 ч · ночной</span>
+      <p class="ferry-notes">Бронируем каюту заранее (за 2–4 нед.). Отправление ~22:00, прибытие ~06:00. Ужин и завтрак на борту.<br><strong>Бронирование:</strong> tt-line.de</p>
+    </div>
+    <div class="ferry-card fade-in">
+      <p class="ferry-n">Переправа 2</p>
+      <p class="ferry-cross">Гейрангер → Хеллесюлт</p>
+      <p class="ferry-op">Fjord1</p>
+      <span class="ferry-dur">~1 ч</span>
+      <p class="ferry-notes">Только летнее расписание (май–октябрь). Машина на борту. Несколько рейсов в день — лучше бронировать место для авто.<br><strong>Бронирование:</strong> fjord1.no</p>
+    </div>
+    <div class="ferry-card fade-in">
+      <p class="ferry-n">Переправа 3</p>
+      <p class="ferry-cross">Гудванген → Флом</p>
+      <p class="ferry-op">Nærøyfjord Cruises</p>
+      <span class="ferry-dur">~2 ч · UNESCO</span>
+      <p class="ferry-notes">Нерёй-фьорд — самый узкий в мире. Машина на борту. В июле — обязательно бронировать за 1–2 дня.<br><strong>Бронирование:</strong> visitflam.com</p>
+    </div>
+    <div class="ferry-card fade-in">
+      <p class="ferry-n">Переправа 4</p>
+      <p class="ferry-cross">Кристиансан → Хиртсхальс</p>
+      <p class="ferry-op">Color Line</p>
+      <span class="ferry-dur">2.5 ч</span>
+      <p class="ferry-notes">Несколько рейсов в день. Рекомендуем вечерний рейс (17:30 или 20:00). Каюта не нужна — удобный паром.<br><strong>Бронирование:</strong> colorline.com</p>
+    </div>
+  </div>
+  <p style="font-size:.8rem;color:rgba(255,255,255,.45);margin-top:1.5rem">
+    Плюс короткие <em style="color:var(--amber2);font-style:normal">bilferge</em> через фьордовые рукава в Норвегии — 10–20 минут, машина на борту, без бронирования.
+  </p>
+</div>
+</section>
+
+<!-- ════════════════ DAY 1 ════════════════ -->
+<section class="day-section" id="day-1">
+  <div class="day-photo" style="background-image:url('photos/day_01.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 1 &nbsp;·&nbsp; Берлин → Травемюнде &nbsp;·&nbsp; ~3.5 ч</p>
+      <h2 class="day-title-text">Берлин → Травемюнде</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Дорога к Балтике</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Первый день — просто разгон. Из Берлина на север по пустым ранним автобанам: поля Мекленбурга, старые кирпичные фермы, запах близкого моря. Травемюнде — тихий портовый городок на Балтике, знаменитый курорт XIX века. Здесь никуда не спешат.</p>
+        <p>Вечером грузимся на паром TT-Line. На борту — ужин, каюта с иллюминатором, Балтийское море. Просыпаемся уже в Швеции — без лишних километров.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Выезд из Берлина (~09:30), перегон 3.5 ч без спешки</div>
+        <div class="activity-row"><span class="act-dot"></span>Обед в Шверине или по пути</div>
+        <div class="activity-row"><span class="act-dot"></span>Прогулка по набережной Травемюнде перед погрузкой</div>
+        <div class="activity-row"><span class="act-dot"></span>Посадка на паром TT-Line (отправление ~22:00)</div>
+        <div class="activity-row"><span class="act-dot"></span>Ужин и ночь на борту — завтра Швеция</div>
+      </div>
+    </div>
+    <div class="callouts fade-in">
+      <div class="callout callout-f">
+        <span class="callout-lbl">Паром</span>
+        Травемюнде → Треллеборг &nbsp;·&nbsp; TT-Line / Stena Line &nbsp;·&nbsp; 7–9 ч ночного перехода &nbsp;·&nbsp; бронировать каюту за 2–4 недели: <strong>tt-line.de</strong>
+      </div>
+    </div>
+    <div class="night-box fade-in">
+      <span class="night-lbl">Ночлег</span>
+      <span class="night-val">Каюта парома TT-Line</span>
+      <span class="night-hint">Питание: самостоятельно &nbsp;·&nbsp; Range Rover Sport</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DAY 2 ════════════════ -->
+<section class="day-section" id="day-2">
+  <div class="day-photo" style="background-image:url('photos/day_02.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 2 &nbsp;·&nbsp; Треллеборг → Омберг &nbsp;·&nbsp; ~3 ч</p>
+      <h2 class="day-title-text">Треллеборг → Озеро Ветерн</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Швеция встречает сосной и тишиной</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Паром причаливает на рассвете. Швеция встречает запахом хвои и совершенно пустыми дорогами — ни очередей, ни суеты. Мы уходим от побережья в глубь Смоланда: бескрайний хвойный лес, замшелые валуны, тёмные озёра без единой лодки.</p>
+        <p>К середине дня — природный парк Асснен, первая остановка в шведских лесах. К вечеру выходим к Ветерну — одному из крупнейших озёр Европы. Первая ночь в деревянном коттедже у воды.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Прибытие в Треллеборг ~06:00, завтрак в городе или на борту</div>
+        <div class="activity-row"><span class="act-dot"></span>Дорога через Смоланд (~1.5 ч до Асснена)</div>
+        <div class="activity-row"><span class="act-dot"></span>Парк Åsnen — лесная прогулка вдоль озера (1–2 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Дорога вдоль берега Ветерна (~1.5 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Заселение в коттедж у воды, первый ужин в Швеции</div>
+      </div>
+    </div>
+    <div class="night-box fade-in">
+      <span class="night-lbl">Ночлег</span>
+      <span class="night-val">Лесной коттедж, Омберг / оз. Ветерн</span>
+      <span class="night-hint">Питание: самостоятельно</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DAY 3 ════════════════ -->
+<section class="day-section" id="day-3">
+  <div class="day-photo" style="background-image:url('photos/day_03.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 3 &nbsp;·&nbsp; Омберг → Силян &nbsp;·&nbsp; ~3 ч</p>
+      <h2 class="day-title-text">Ветерн → Даларна</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Красные домики и первые удочки</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Даларна — сердце шведской идентичности. Деревянные дома цвета тёмно-красной охры, белые наличники, лодки у тихих причалов. Здесь делают знаменитых лошадок Дала; здесь традиции — просто жизнь, не экспозиция.</p>
+        <p>Силян — большое лесное озеро в окружении холмов. Сегодня вечером достаём удочки: окунь, щука, форель — всё это здесь и ждёт. Лодку можно арендовать прямо у коттеджа.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Живописная дорога вдоль северного берега Ветерна</div>
+        <div class="activity-row"><span class="act-dot"></span>Городок Рэттвик на оз. Силян — кофе и короткая прогулка</div>
+        <div class="activity-row"><span class="act-dot"></span>Аренда лодки (rowboat) — первый рыболовный выход</div>
+        <div class="activity-row"><span class="act-dot"></span>Рыбалка: окунь, щука, форель (лицензия онлайн ~15 EUR/день)</div>
+        <div class="activity-row"><span class="act-dot"></span>Ночлег в традиционном красном далекарлийском коттедже</div>
+      </div>
+    </div>
+    <div class="night-box fade-in">
+      <span class="night-lbl">Ночлег</span>
+      <span class="night-val">Коттедж у озера Силян, Даларна</span>
+      <span class="night-hint">Питание: самостоятельно</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DAY 4 ════════════════ -->
+<section class="day-section" id="day-4">
+  <div class="day-photo" style="background-image:url('photos/day_04.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 4 &nbsp;·&nbsp; Силян → Femundsmarka &nbsp;·&nbsp; ~3 ч</p>
+      <h2 class="day-title-text">Даларна → Фемундсмарка</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Граница — просто знак на лесной дороге</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Шведско-норвежская граница здесь — знак на опушке и смена языка на дорожных указателях. За Трюсилем начинается грунтовка: гравийные треки вдоль рек и через болота, пересечение лесных ручьёв по деревянным мостам. Range Rover здесь в своей стихии.</p>
+        <p>Фемундсмарка — один из самых диких национальных парков Норвегии. К вечеру выходим к берегу озера Фемунден: глубокое, холодное, огромное. Наша база на ближайшие два дня.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Дорога из Далекарлии через Трюсиль (~2.5 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Топливо в Трюсиле — здесь дешевле, чем дальше в Норвегии</div>
+        <div class="activity-row"><span class="act-dot"></span>Грунтовые лесные треки до кабина (~30 км)</div>
+        <div class="activity-row"><span class="act-dot"></span>Заселение в wilderness-кабин у озера Фемунден</div>
+        <div class="activity-row"><span class="act-dot"></span>Вечерняя прогулка по берегу и первая норвежская рыбалка</div>
+      </div>
+    </div>
+    <div class="callouts fade-in">
+      <div class="callout callout-o">
+        <span class="callout-lbl">4WD Offroad</span>
+        Лесные грунтовки Trysil → Femundsmarka: ~30 км вдоль рек и болот. Лёгкий грейдер, 4Low не нужен, но высокий клиренс обязателен. Terrain Response: Gravel.
+      </div>
+    </div>
+    <div class="night-box fade-in">
+      <span class="night-lbl">Ночлег</span>
+      <span class="night-val">Wilderness-кабин, берег озера Фемунден</span>
+      <span class="night-hint">Питание: самостоятельно</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DAY 5 ════════════════ -->
+<section class="day-section" id="day-5">
+  <div class="day-photo" style="background-image:url('photos/day_05.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 5 &nbsp;·&nbsp; Озеро Фемунден (весь день) &nbsp;·&nbsp; 0 км</p>
+      <h2 class="day-title-text">Фемундсмарка — дневная база</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Никуда не едем. День принадлежит озеру</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Femunden — огромное глубокое озеро среди гор и настоящей тайги. Здесь нет дорог, нет сигнала, нет ничего лишнего. Практически без туристов — в июле, в самый сезон.</p>
+        <p>Рыбалка с лодки на открытой воде, лесные тропы по берегу, вечером — баня (sauna) прямо на берегу озера. Если повезёт с погодой, закат в 23:00 покрасит воду в оранжевый — и ни одна фотография это не передаст.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Рыбалка с лодки: форель, окунь, щука, арктический голец</div>
+        <div class="activity-row"><span class="act-dot"></span>Лесная тропа вдоль берега (~2–3 ч, легко)</div>
+        <div class="activity-row"><span class="act-dot"></span>Каноэ-выход по озеру (аренда у хозяина кабина)</div>
+        <div class="activity-row"><span class="act-dot"></span>Вечерняя баня (sauna) на берегу</div>
+        <div class="activity-row"><span class="act-dot"></span>Белая ночь и закат над озером ~22:30–23:00</div>
+      </div>
+    </div>
+    <div class="night-box fade-in">
+      <span class="night-lbl">Ночлег</span>
+      <span class="night-val">Wilderness-кабин, берег озера Фемунден</span>
+      <span class="night-hint">Питание: самостоятельно</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DAY 6 ════════════════ -->
+<section class="day-section" id="day-6">
+  <div class="day-photo" style="background-image:url('photos/day_06.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 6 &nbsp;·&nbsp; Femundsmarka → Довре &nbsp;·&nbsp; ~3.5 ч</p>
+      <h2 class="day-title-text">Рёрус → Горы Довре</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">UNESCO и мускусные быки на плато</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Утром — последний рассвет над озером, потом на запад. Рёрус — маленький норвежский городок XVIII века, внесённый в список ЮНЕСКО: медные рудники, деревянные дома цвета угля и охры, булыжные мостовые. Не нужно задерживаться надолго — в этом городе всё понятно за два часа.</p>
+        <p>Дальше — горы Довре. Высокое плато на 1400–1500 м, открытые пространства, карликовые берёзы и дикие мускусные быки — реликт ледникового периода. Ночлег на горной ферме (fjellgård), ужин домашней едой.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Прощальная утренняя рыбалка или прогулка у озера</div>
+        <div class="activity-row"><span class="act-dot"></span>Рёрус: исторический горный город ЮНЕСКО (~2 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Дорога через горы Довре (~2 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Прогулка по плато в поисках мускусных быков (Доврефьелль-Сундальсёра НП)</div>
+        <div class="activity-row"><span class="act-dot"></span>Ночлег на горной ферме, домашний ужин</div>
+      </div>
+    </div>
+    <div class="night-box fade-in">
+      <span class="night-lbl">Ночлег</span>
+      <span class="night-val">Горная ферма (Fjellgård), горы Довре</span>
+      <span class="night-hint">Питание: ужин включён / самостоятельно</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DAY 7 ════════════════ -->
+<section class="day-section" id="day-7">
+  <div class="day-photo" style="background-image:url('photos/day_07.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 7 &nbsp;·&nbsp; Довре → Гейрангер → Хеллесюлт &nbsp;·&nbsp; ~3 ч + 1 ч паром</p>
+      <h2 class="day-title-text">Тролльстиген → Гейрангер-фьорд</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">11 петель серпантина и fjord за бортом</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Главная дорога поездки. Тролльстиген — 11 петель серпантина прямо вверх по скале над водопадом. Наверху смотровая площадка, с которой машины внизу — как игрушечные. Это официальная Национальная туристическая дорога Норвегии, и она отвечает своему статусу.</p>
+        <p>После Тролльстигена — Гейрангер-фьорд. Паром Geiranger → Hellesylt (1 ч): стены по 800 метров с каждой стороны, водопады прямо в воду. Ночь в долине Стрюн.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Тролльстиген: серпантин, водопад Стюртофоссен, смотровая площадка</div>
+        <div class="activity-row"><span class="act-dot"></span>Дорога по горному плато к Гейрангеру (~2 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Смотровая Ørnesvingen — вид с орлиного уступа на фьорд</div>
+        <div class="activity-row"><span class="act-dot"></span>Паром Geiranger → Hellesylt (Fjord1, ~1 ч, машина на борту)</div>
+        <div class="activity-row"><span class="act-dot"></span>Ночлег в долине Стрюн или Хеллесюлт</div>
+      </div>
+    </div>
+    <div class="callouts fade-in">
+      <div class="callout callout-f">
+        <span class="callout-lbl">Паром</span>
+        Гейрангер → Хеллесюлт &nbsp;·&nbsp; Fjord1 &nbsp;·&nbsp; ~1 ч &nbsp;·&nbsp; летнее расписание (май–октябрь) &nbsp;·&nbsp; машина на борту &nbsp;·&nbsp; бронировать место для авто: <strong>fjord1.no</strong>
+      </div>
+    </div>
+    <div class="night-box fade-in">
+      <span class="night-lbl">Ночлег</span>
+      <span class="night-val">Гестхаус, долина Стрюн / Hellesylt</span>
+      <span class="night-hint">Питание: самостоятельно</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DAY 8 ════════════════ -->
+<section class="day-section" id="day-8">
+  <div class="day-photo" style="background-image:url('photos/day_08.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 8 &nbsp;·&nbsp; Стрюн → Лустер (Согне-фьорд) &nbsp;·&nbsp; ~3 ч</p>
+      <h2 class="day-title-text">Ледник Йостедальсбреен → Согне-фьорд</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Крупнейший ледник Европы и историческая горная грунтовка</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Jostedalsbreen — крупнейший ледник материковой Европы. Мы не идём на вершину, но поднимаемся к одному из языков: поверхность голубоватая, холодная, живая — ледник движется на несколько сантиметров в день. Трек несложный, 2–3 часа.</p>
+        <p>После — Gamle Strynefjellsvegen: историческая горная дорога 1894 года, ~27 км гравия, крутые повороты над долинами. Открыта только летом. Range Rover здесь чувствует себя уместно. Вечером — Согне-фьорд.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Трек к языку ледника Jostedalsbreen (~2–3 ч, гид опционально)</div>
+        <div class="activity-row"><span class="act-dot"></span>Gamle Strynefjellsvegen — горная дорога 1894 г. (~27 км гравия)</div>
+        <div class="activity-row"><span class="act-dot"></span>Виды на ледниковые долины и Согне-фьорд с перевала</div>
+        <div class="activity-row"><span class="act-dot"></span>Вечерний заезд в Лустер, ужин у фьорда</div>
+      </div>
+    </div>
+    <div class="callouts fade-in">
+      <div class="callout callout-o">
+        <span class="callout-lbl">4WD Offroad</span>
+        Gamle Strynefjellsvegen: ~27 км исторической горной дороги (гравий, узкие разъезды, открыта июнь–сентябрь). Один из лучших участков маршрута для RRS. Terrain Response: Gravel.
+      </div>
+    </div>
+    <div class="night-box fade-in">
+      <span class="night-lbl">Ночлег</span>
+      <span class="night-val">Лодж / гестхаус, Лустер (Согне-фьорд)</span>
+      <span class="night-hint">Питание: самостоятельно</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DAY 9 ════════════════ -->
+<section class="day-section" id="day-9">
+  <div class="day-photo" style="background-image:url('photos/day_09.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 9 &nbsp;·&nbsp; Лустер → Аурланн &nbsp;·&nbsp; ~2 ч + 2 ч паром</p>
+      <h2 class="day-title-text">Нерёй-фьорд → Аурланнсфьеллет</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Самый узкий фьорд в мире и дорога над облаками</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Нерёй-фьорд — самый узкий фьорд в мире, памятник ЮНЕСКО. Мы едем до Гудвангена и грузимся на паром до Флома: 2 часа через стены скал, которые сжимают горизонт до полоски неба. Кажется, что попал внутрь горы.</p>
+        <p>После парома — подъём на Aurlandsfjellet. Дорога «Снежная» открыта только летом и выходит на высокогорное плато с видами на 360°: туман, ледниковые озёра, и никого вокруг. Ночлег в Аурланне — тихой деревне у воды.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Дорога из Лустера до Гудвангена (~1.5 ч по берегу Согне-фьорда)</div>
+        <div class="activity-row"><span class="act-dot"></span>Паром Gudvangen → Flåm по Нерёй-фьорду (2 ч, ЮНЕСКО, машина на борту)</div>
+        <div class="activity-row"><span class="act-dot"></span>Флом — кофе и короткая прогулка вдоль реки</div>
+        <div class="activity-row"><span class="act-dot"></span>Подъём на Aurlandsfjellet — «Снежная дорога» (открыта июнь–октябрь)</div>
+        <div class="activity-row"><span class="act-dot"></span>Вечерняя рыбалка или прогулка у фьорда в Аурланне</div>
+      </div>
+    </div>
+    <div class="callouts fade-in">
+      <div class="callout callout-f">
+        <span class="callout-lbl">Паром</span>
+        Гудванген → Флом (Нерёй-фьорд) &nbsp;·&nbsp; Nærøyfjord Cruises &nbsp;·&nbsp; ~2 ч &nbsp;·&nbsp; ЮНЕСКО &nbsp;·&nbsp; машина на борту &nbsp;·&nbsp; в июле бронировать за 1–2 дня: <strong>visitflam.com</strong>
+      </div>
+    </div>
+    <div class="night-box fade-in">
+      <span class="night-lbl">Ночлег</span>
+      <span class="night-val">Гестхаус, Аурланн / Флом</span>
+      <span class="night-hint">Питание: самостоятельно</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DAY 10 ════════════════ -->
+<section class="day-section" id="day-10">
+  <div class="day-photo" style="background-image:url('photos/day_10.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 10 &nbsp;·&nbsp; Аурланн → Улвик (Хардангер) &nbsp;·&nbsp; ~2.5 ч</p>
+      <h2 class="day-title-text">Хардангер-фьорд</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Водопады, яблоневые сады и вечерняя рыбалка</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Хардангер-фьорд — один из самых известных в Норвегии, но его восточная часть остаётся тихой: туристов почти нет, деревни маленькие. Водопад Вёрингсфоссен падает с 182 м в каньон — шум слышен за километр до смотровой площадки.</p>
+        <p>Эйдфьорд — деревня, где у воды стоит буквально несколько домов и яблоневые сады. Улвик — тихое место в конце фьордового рукава. Вечером — лодка у причала или рыбалка с берега.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Дорога из Аурланна через горы Хардангервидда (~1.5 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Водопад Vøringsfossen — смотровая над каньоном</div>
+        <div class="activity-row"><span class="act-dot"></span>Эйдфьорд — прогулка, местный фермерский магазин</div>
+        <div class="activity-row"><span class="act-dot"></span>Аренда лодки или рыбалка с причала в Улвике</div>
+        <div class="activity-row"><span class="act-dot"></span>Купание в фьорде (температура воды летом ~16–18°C)</div>
+      </div>
+    </div>
+    <div class="night-box fade-in">
+      <span class="night-lbl">Ночлег</span>
+      <span class="night-val">Гестхаус, Улвик (Хардангер-фьорд)</span>
+      <span class="night-hint">Питание: самостоятельно</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DAY 11 ════════════════ -->
+<section class="day-section" id="day-11">
+  <div class="day-photo" style="background-image:url('photos/day_11.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 11 &nbsp;·&nbsp; Улвик → Кристиансан &nbsp;·&nbsp; ~4 ч</p>
+      <h2 class="day-title-text">Сетесдален → Кристиансан</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Дикая долина и последний паром</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Сетесдален — дикая долина реки Отра, которую редко включают в маршрут. Вдоль реки — старые фермы, гравийные треки, места для лосося. Это последняя возможность для офроуда и рыбалки перед возвращением домой.</p>
+        <p>К вечеру выходим в Кристиансан. Грузимся на паром Color Line до датского Хиртсхальса: 2.5 ч по Северному морю, ужин на борту. Завтра — Дания и дорога домой.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Дорога через Хардангер и горы (~1.5 ч до Сетесдалена)</div>
+        <div class="activity-row"><span class="act-dot"></span>Сетесдален: грунтовые треки вдоль реки Отра</div>
+        <div class="activity-row"><span class="act-dot"></span>Рыбалка на атлантического лосося (лицензия обязательна, ~50 EUR)</div>
+        <div class="activity-row"><span class="act-dot"></span>Дорога до Кристиансана (~2 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Паром Кристиансан → Хиртсхальс (отправление вечером, ужин на борту)</div>
+      </div>
+    </div>
+    <div class="callouts fade-in">
+      <div class="callout callout-f">
+        <span class="callout-lbl">Паром</span>
+        Кристиансан → Хиртсхальс &nbsp;·&nbsp; Color Line &nbsp;·&nbsp; 2.5 ч &nbsp;·&nbsp; несколько рейсов в день &nbsp;·&nbsp; рекомендуем вечерний рейс (17:30 или 20:00): <strong>colorline.com</strong>
+      </div>
+      <div class="callout callout-o">
+        <span class="callout-lbl">4WD Offroad</span>
+        Сетесдален, треки вдоль р. Отра: лёгкий гравий, живописная рыбацкая долина. Хорошее завершение для RRS перед возвращением домой.
+      </div>
+    </div>
+    <div class="night-box fade-in">
+      <span class="night-lbl">Ночлег</span>
+      <span class="night-val">Паром или гостиница в Хиртсхальсе (Дания)</span>
+      <span class="night-hint">Питание: самостоятельно</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DAY 12 ════════════════ -->
+<section class="day-section" id="day-12">
+  <div class="day-photo" style="background-image:url('photos/day_12.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 12 &nbsp;·&nbsp; Hirtshals → Берлин &nbsp;·&nbsp; ~7 ч</p>
+      <h2 class="day-title-text">Хиртсхальс → Берлин</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">7 часов, 4 человека, 12 дней позади</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Северная Дания ранним утром — плоская, зелёная, спокойная. Потом граница с Германией, потом автобан, потом Берлин. Самый длинный перегон поездки — делаем его без спешки: один ведёт, трое вспоминают маршрут и думают о следующем.</p>
+        <p>Около 17–18 часов — дома. Примерно 5 000 км, 12 дней, два ночных парома, один ледник, несколько фьордов, много рыбы и ни одного крупного города.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Прибытие в Хиртсхальс, завтрак в Дании</div>
+        <div class="activity-row"><span class="act-dot"></span>Дорога через Ютландию и Гамбург (~4 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Остановка на обед у автобана (Rasthof)</div>
+        <div class="activity-row"><span class="act-dot"></span>Финальный прогон до Берлина (~3 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Прибытие домой ~17–18 ч</div>
+      </div>
+    </div>
+    <div class="night-box fade-in">
+      <span class="night-lbl">Финиш</span>
+      <span class="night-val">Берлин — дома</span>
+      <span class="night-hint">~5 000 км пройдено</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ TIPS ════════════════ -->
+<section id="tips" class="section tips-section">
+<div class="wrap">
+  <div class="section-head">
+    <h2 class="serif">Снаряжение и советы</h2>
+    <div class="section-head-line"></div>
+  </div>
+  <div class="tips-grid">
+    <div class="tips-card fade-in">
+      <div class="tips-head">Рыбалка</div>
+      <div class="tips-body">
+        <div class="tip-row"><span class="tip-dot"></span>Спиннинг + катушка, приманки 15–40 г</div>
+        <div class="tip-row"><span class="tip-dot"></span>Блёсны: ложка 20–40 г, джиг 10–25 г</div>
+        <div class="tip-row"><span class="tip-dot"></span>Силикон: твистеры и виброхвосты (щука, окунь)</div>
+        <div class="tip-row"><span class="tip-dot"></span>Форелевые мухи (реки Норвегии)</div>
+        <div class="tip-row"><span class="tip-dot"></span>Швеция: лицензия ~15 EUR/день на fiske.se</div>
+        <div class="tip-row"><span class="tip-dot"></span>Норвегия: ~10–25 EUR (у хозяина кабина)</div>
+        <div class="tip-row"><span class="tip-dot"></span>Подсачек, кукан, перчатки для рыбалки</div>
+      </div>
+    </div>
+    <div class="tips-card fade-in">
+      <div class="tips-head">Одежда и снаряжение</div>
+      <div class="tips-body">
+        <div class="tip-row"><span class="tip-dot"></span>Мембранная куртка — дождь в Норвегии норма</div>
+        <div class="tip-row"><span class="tip-dot"></span>Термобельё: ночи +5..+10°C даже летом на севере</div>
+        <div class="tip-row"><span class="tip-dot"></span>Водостойкие треккинговые ботинки</div>
+        <div class="tip-row"><span class="tip-dot"></span>Москитная сетка (Femundsmarka — комары!)</div>
+        <div class="tip-row"><span class="tip-dot"></span>Спальник +5°C для кабинов без отопления</div>
+        <div class="tip-row"><span class="tip-dot"></span>Солнцезащитный крем SPF 50 (белые ночи)</div>
+      </div>
+    </div>
+    <div class="tips-card fade-in">
+      <div class="tips-head">Range Rover Sport — подготовка</div>
+      <div class="tips-body">
+        <div class="tip-row"><span class="tip-dot"></span>Давление в шинах: 2.0 бар для грунтовок</div>
+        <div class="tip-row"><span class="tip-dot"></span>Terrain Response: Gravel для лесных треков</div>
+        <div class="tip-row"><span class="tip-dot"></span>HDC (ассистент спуска) — пригодится на Trollstigen</div>
+        <div class="tip-row"><span class="tip-dot"></span>Полный бак перед Норвегией (~1.80 EUR/л)</div>
+        <div class="tip-row"><span class="tip-dot"></span>GPS оффлайн: Maps.me / OsmAnd — сигнала нет</div>
+        <div class="tip-row"><span class="tip-dot"></span>AutoPASS (норвежские тоннели): оплата онлайн после</div>
+        <div class="tip-row"><span class="tip-dot"></span>Буксировочные стропы на всякий случай</div>
+      </div>
+    </div>
+    <div class="tips-card fade-in">
+      <div class="tips-head">Бронирование паромов</div>
+      <div class="tips-body">
+        <div class="tip-row"><span class="tip-dot"></span>Travemünde → Trelleborg: tt-line.de (за 2–4 нед.)</div>
+        <div class="tip-row"><span class="tip-dot"></span>Geiranger → Hellesylt: fjord1.no (за 1–2 нед.)</div>
+        <div class="tip-row"><span class="tip-dot"></span>Gudvangen → Flåm: visitflam.com (в июле — обязательно!)</div>
+        <div class="tip-row"><span class="tip-dot"></span>Kristiansand → Hirtshals: colorline.com (за 1–2 нед.)</div>
+        <div class="tip-row"><span class="tip-dot"></span>Оплата: Visa/MC принимают везде, налик не нужен</div>
+      </div>
+    </div>
+    <div class="tips-card fade-in">
+      <div class="tips-head">Норвегия — практика</div>
+      <div class="tips-body">
+        <div class="tip-row"><span class="tip-dot"></span>Топливо: 95 и дизель везде, карты принимают</div>
+        <div class="tip-row"><span class="tip-dot"></span>Скорость: 80 км/ч на большинстве дорог, 50 в деревнях</div>
+        <div class="tip-row"><span class="tip-dot"></span>Вода из крана — питьевая в любой точке страны</div>
+        <div class="tip-row"><span class="tip-dot"></span>Allemannsretten: кемпинг везде &gt;150 м от домов</div>
+        <div class="tip-row"><span class="tip-dot"></span>Coop / REMA 1000 — супермаркеты, ресторан дорого</div>
+      </div>
+    </div>
+    <div class="tips-card fade-in">
+      <div class="tips-head">Швеция — практика</div>
+      <div class="tips-body">
+        <div class="tip-row"><span class="tip-dot"></span>Валюта: шведская крона SEK, карты везде</div>
+        <div class="tip-row"><span class="tip-dot"></span>Allemansrätten: те же свободы, что в Норвегии</div>
+        <div class="tip-row"><span class="tip-dot"></span>Топливо дешевле Норвегии (~1.60 EUR/л)</div>
+        <div class="tip-row"><span class="tip-dot"></span>ICA / Coop / Hemköp — основные супермаркеты</div>
+        <div class="tip-row"><span class="tip-dot"></span>Рыбные лицензии: fiske.se или у хозяина коттеджа</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  <em>Скандинавия 2026</em> &nbsp;·&nbsp; Берлин → Норвегия → Швеция → Берлин<br>
+  12 дней &nbsp;·&nbsp; 4 человека &nbsp;·&nbsp; ~5 000 км &nbsp;·&nbsp; 4 парома &nbsp;·&nbsp; 1 ледник &nbsp;·&nbsp; 0 крупных городов
+</footer>
+
+<script>
+// ── Sticky nav active highlight ───────────────────────────────
+const navLinks = document.querySelectorAll('.sticky-nav a');
+const sections = [];
+navLinks.forEach(a => {
+  const id = a.getAttribute('href').replace('#', '');
+  const el = document.getElementById(id);
+  if (el) sections.push({ el, a });
+});
+
+function updateNav() {
+  const scrollY = window.scrollY + 80;
+  let current = sections[0];
+  for (const s of sections) {
+    if (s.el.offsetTop <= scrollY) current = s;
+  }
+  navLinks.forEach(a => a.classList.remove('active'));
+  if (current) current.a.classList.add('active');
+}
+
+// ── Scroll-triggered fade-in ──────────────────────────────────
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+fadeEls.forEach(el => observer.observe(el));
+
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+</script>
+</body>
+</html>
