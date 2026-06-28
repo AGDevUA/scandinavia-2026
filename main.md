@@ -1,157 +1,110 @@
-# Scandinavia 2026 — Полная документация проекта
+# Scandinavia 2026 — проект (continue-from-here)
 
-Этот файл — полная история того, что было сделано и как. Прочитав его, можно воспроизвести всё с нуля.
+Сайт-гид роуд-трипа **Berlin → Norway → Sweden → Berlin**. 12 дней · 4 человека ·
+Range Rover Sport · ~5 000 км · природа, рыбалка, офроуд, без больших городов.
 
----
+- **Live:** https://agdevua.github.io/scandinavia-2026/
+- **Repo:** https://github.com/AGDevUA/scandinavia-2026 (GitHub user `AGDevUA`)
 
-## Что было создано
-
-Туристический гид для роуд-трипа **Берлин → Норвегия → Швеция → Берлин**:
-
-- **Сайт:** https://agdevua.github.io/scandinavia-2026/
-- **GitHub репо:** https://github.com/AGDevUA/scandinavia-2026
-- **PDF:** `scandinavia_roadtrip.pdf` (15 страниц, только локально)
-
-**Параметры поездки:** 12 дней · 4 человека · Range Rover Sport · ~5 000 км · фокус на природе, рыбалке, офроуде, без больших городов
+> Проект — **только сайт**. PDF больше не делаем.
 
 ---
 
 ## Маршрут (12 дней)
 
 | День | Откуда → Куда | Главное |
-|------|--------------|---------|
-| 1 | Берлин → Травемюнде | Паром TT-Line ночью |
-| 2 | Треллеборг → оз. Ветерн | Шведский лес, парк Åsnen |
-| 3 | Ветерн → Даларна (Силян) | Красные коттеджи, рыбалка |
-| 4 | Даларна → Фемундсмарка (NO) | Граница, грунтовки 4x4 |
-| 5 | Фемундсмарка (весь день) | Рыбалка, баня, белая ночь |
-| 6 | Фемундсмарка → Довре | Рёрус UNESCO, мускусные быки |
-| 7 | Довре → Гейрангер | Тролльстиген, паром фьорд |
-| 8 | Стрюн → Лустер | Ледник, горная грунтовка 4x4 |
-| 9 | Лустер → Аурланн | Нерёй-фьорд UNESCO (паром) |
-| 10 | Аурланн → Улвик | Хардангер, водопад, рыбалка |
-| 11 | Улвик → Кристиансан | Сетесдален 4x4, паром домой |
-| 12 | Хиртсхальс → Берлин | Финальный перегон |
+|---|---|---|
+| 1 | Berlin → Travemünde | Паром TT-Line (ночной) |
+| 2 | Trelleborg → Omberg (оз. Vättern) | Шведский лес, парк Åsnen |
+| 3 | Vättern → Dalarna (оз. Siljan) | Красные домики, рыбалка |
+| 4 | Dalarna → Femundsmarka (NO) | Граница, грунтовки 4x4 |
+| 5 | Femundsmarka (весь день) | Рыбалка, баня, белая ночь |
+| 6 | Femundsmarka → Dovre | Røros (ЮНЕСКО), мускусные быки |
+| 7 | Dovre → Geiranger | Trollstigen, паром фьорда |
+| 8 | Stryn → Luster | Jostedalsbreen, горная грунтовка 4x4 |
+| 9 | Luster → Aurland | Nærøyfjord (ЮНЕСКО, паром) |
+| 10 | Aurland → Ulvik | Hardangerfjord, Vøringsfossen, рыбалка |
+| 11 | Ulvik → Kristiansand | Setesdalen 4x4, паром домой |
+| 12 | Hirtshals → Berlin | Финальный перегон |
 
-**Паромы:**
-1. Травемюнде → Треллеборг (tt-line.de, ночной ~8ч)
-2. Гейрангер → Хеллесюлт (fjord1.no, ~1ч)
-3. Гудванген → Флом (visitflam.com, ~2ч, UNESCO)
-4. Кристиансан → Хиртсхальс (colorline.com, ~2.5ч)
+## Паромы (рабочие URL)
 
----
-
-## Структура файлов
-
-```
-/Users/ag2020/Downloads/AICode/Fun/
-├── index.html              ← весь сайт (один файл)
-├── photos/
-│   ├── day_00.jpg          ← обложка сайта
-│   ├── day_01.jpg          ← фото для дня 1
-│   └── ... day_12.jpg      ← 13 уникальных фото (проверено MD5)
-├── generate_pdf.py         ← скрипт генерации PDF
-├── scandinavia_roadtrip.pdf← готовый PDF (15 стр.)
-├── main.md                 ← этот файл
-├── Srart                   ← оригинальный промпт пользователя
-└── .gitignore              ← исключает PDF, .py, Srart из git
-```
+1. Travemünde→Trelleborg · TT-Line · `ttline.com/en/sweden-ferries/travemuende-trelleborg/`
+2. Geiranger→Hellesylt · Fjord1 · `fjord1.no/eng/routes-and-timetables/moere-og-romsdal/geiranger-hellesylt`
+3. Gudvangen→Flåm · Lustrabaatane · `en.lustrabaatane.no/flam-gudvangen`
+4. Kristiansand→Hirtshals · Color Line · `colorline.com/denmark-norway/ferry-hirtshals-kristiansand`
 
 ---
 
-## Как пересоздать PDF
+## Файлы (`/Users/ag2020/Downloads/AICode/Fun/`)
+
+| Файл | Назначение |
+|---|---|
+| `index.html` | Весь сайт (HTML+CSS+JS в одном файле), контент на русском |
+| `photos/day_00..12.jpg` | Обложка + фото-шапки 12 дней |
+| `photos/ferry_01..04.jpg` | Фото 4 паромов (Wikimedia) |
+| `photos/g_*.jpg` | Фото галерей дней (Wikimedia): `g_02_a g_03_a g_04_a g_06_a g_06_b g_07_a` |
+| `.gitignore` | Исключает локальные служебные файлы из репо |
+
+`Srart` — исходный бриф пользователя (локально, не в git).
+
+## Структура сайта (секции в `index.html`)
+
+`#top` Hero · `#overview` таблица маршрута + Google Maps · `#ferries` 4 карточки с фото ·
+`#day-1…#day-12` (фото-шапка + текст + activities + блоки Паром/4WD + галерея + night-box) ·
+`#tips` 6 карточек · `#booking` таблицы паромов/ночлегов/лицензий + бюджет + Google Maps.
+
+## Дизайн и правила
+
+- Палитра: `--forest #1B4332`, `--amber #B48C30`, `--cream #F5F1E9`.
+- Шрифты: Playfair Display (заголовки) + Inter (текст), Google Fonts.
+- Тон: товарищеский, спокойный, без слэнга/клише.
+- **Топонимы — латиницей** (Geiranger, Vättern, Nærøyfjord…), обычные слова по-русски («озеро», «паром»).
+- Фото — реальные с Wikimedia Commons (лицензия CC).
+
+## Деплой
 
 ```bash
 cd /Users/ag2020/Downloads/AICode/Fun
-python3 generate_pdf.py
-```
-
-**Зависимости:** `pip install fpdf2 pillow requests`
-
-**Шрифты:** `/System/Library/Fonts/Supplemental/Arial Unicode.ttf` и `Arial Bold.ttf`
-
-**Фото:** скачиваются автоматически с loremflickr.com и picsum.photos в `photos/`. Если нужны новые уникальные фото — удали нужные `.jpg` и запусти скрипт снова.
-
-**Важно о дубликатах фото:** loremflickr для похожих запросов возвращает одно изображение. Для уникальности использовался `?lock=N` и picsum с уникальными seed-строками. Если снова появятся дубликаты, проверить через:
-```python
-import hashlib; from pathlib import Path
-hashes = {}
-for p in Path("photos").glob("*.jpg"):
-    h = hashlib.md5(p.read_bytes()).hexdigest()
-    print("DUP" if h in hashes else "OK", p.name)
-    hashes[h] = p.name
-```
-
----
-
-## Структура сайта (секции index.html)
-
-| ID | Секция | Содержимое |
-|----|--------|-----------|
-| `#top` | Hero | Полноэкранное фото `day_00.jpg`, заголовок СКАНДИНАВИЯ |
-| `#overview` | Маршрут | Таблица 12 дней с иконками ПАРОМ/4x4, Google Maps ссылка |
-| `#ferries` | Паромы | 4 карточки с деталями переправ |
-| `#day-1`…`#day-12` | Дни | Фото + описание + активности + блоки ПАРОМ/4WD + плашка НОЧЛЕГ |
-| `#tips` | Советы | 6 карточек: рыбалка, одежда, RRS, паромы, Норвегия, Швеция |
-| `#booking` | Бронирование | Таблицы паромов/ночлегов/лицензий, бюджет, Google Maps |
-
-**Sticky nav** автоматически подсвечивает текущую секцию при скролле (JavaScript IntersectionObserver).
-
----
-
-## Дизайн
-
-**Цвета:**
-```css
---forest:  #1B4332   /* тёмно-лесной зелёный — фон шапок, footer */
---forest2: #2D5A41   /* чуть светлее — таблицы, карточки */
---amber:   #B48C30   /* янтарный — акценты, разделители */
---cream:   #F5F1E9   /* тёплый крем — фон секций */
---dark:    #1C1C1C   /* текст */
-```
-
-**Шрифты:** Playfair Display (serif, заголовки) + Inter (sans-serif, текст) — Google Fonts
-
-**Тон текстов:** Русский язык, товарищеский но взрослый, без слэнга и клише
-
----
-
-## Деплой на GitHub Pages
-
-**Репо:** github.com/AGDevUA/scandinavia-2026  
-**Ветка:** `main`, корень `/`  
-**Сайт:** https://agdevua.github.io/scandinavia-2026/
-
-**Задеплоить изменения:**
-```bash
-cd /Users/ag2020/Downloads/AICode/Fun
-git add index.html
-git -c user.email="ta.nu.da@gmail.com" -c user.name="ag2020" commit -m "описание изменений"
+git add index.html main.md photos/
+git -c user.email="ta.nu.da@gmail.com" -c user.name="ag2020" commit -m "..."
 git push
-# Обновляется через ~30 секунд
 ```
-
-**gh CLI** установлен в `~/bin/gh` (v2.95.0).  
-**GH_TOKEN** (PAT с правами `repo`) нужно экспортировать перед использованием gh CLI.
-
----
-
-## Что ещё можно улучшить
-
-1. **Реальные фото мест** — заменить loremflickr/picsum на реальные фото Норвегии/Швеции
-2. **Интерактивная карта** — встроить Google Maps или Leaflet.js с маркерами всех точек
-3. **Мобильная проверка** — протестировать на реальных телефонах
-4. **Конкретные отели** — добавить реальные названия кабинов/гостиниц с ценами
-5. **Синхронизация PDF и сайта** — сейчас это отдельные файлы, правки нужно вносить в оба
-6. **Дата поездки** — сейчас "Лето 2026" без конкретных дат
+Нужен **пользовательский `GH_TOKEN`** (`export GH_TOKEN=…` перед push) — в репо НЕ хранить.
+CDN Fastly кэширует ~10 мин (`max-age=600`): сайт обновляется не мгновенно, для проверки
+жёстко обновить браузер (Cmd+Shift+R) или `curl` с другим edge.
 
 ---
 
-## Как воспроизвести с нуля
+## Pending — следующий шаг (дёшево, без повторного поиска)
 
-1. Создай папку, положи туда `generate_pdf.py` и `index.html`
-2. Запусти `python3 generate_pdf.py` — скачает фото и создаст PDF
-3. Для сайта: `git init && git add index.html photos/ && git commit -m "init"`
-4. Создай GitHub репо через API: `curl -X POST -H "Authorization: token TOKEN" https://api.github.com/user/repos -d '{"name":"repo-name"}'`
-5. `git remote add origin URL && git push -u origin main`
-6. Включи Pages через API: `curl -X POST -H "Authorization: token TOKEN" https://api.github.com/repos/USER/REPO/pages -d '{"source":{"branch":"main","path":"/"}}'`
+Докачать 8 фото галерей для дней 7–12 и вставить в `index.html`. URL уже найдены
+(база: `https://upload.wikimedia.org/wikipedia/commons/`):
+
+| Файл | День / слот | Путь после базы |
+|---|---|---|
+| `g_07_b` | 7 (добор → duo) | `1/16/Seven_Sisters_Waterfall_in_Geirangerfjord%2C_Norway.JPG` |
+| `g_08_a` | 8 (single) | `2/2b/Briksdalsbreen%2C_the_arm_of_Jostedalsbreen_glacier_-_Norway_-_panoramio.jpg` |
+| `g_09_a` | 9 (duo) | `d/d8/N%C3%A6r%C3%B8yfjord.JPG` |
+| `g_09_b` | 9 (duo) | `9/97/Flam_station_-_Flam%2C_Norway_-_panoramio.jpg` |
+| `g_10_a` | 10 (duo) | `b/b6/Voringsfossen_waterfall_at_Eidfjord%2C_Norway.jpg` |
+| `g_10_b` | 10 (duo) | `7/79/Hovland_Hardangerfjorden_Norway.JPG` |
+| `g_11_a` | 11 (single) | `8/8a/Aaraksboe_in_Setesdalen_1.JPG` |
+| `g_12_a` | 12 (single) | `4/4b/Hirtshals-fyr-%C3%B8st.JPG` |
+
+- Качать через `curl -A Mozilla/5.0` (Python ssl на этой машине ломается). Wikimedia
+  отдаёт **429** при частых запросах — паузы 4–8с между файлами, проверять размер >10KB.
+- Вставка перед `<div class="night-box …">` нужного дня:
+  ```html
+  <div class="gallery single fade-in">  <!-- или class="gallery duo …" для двух фото -->
+    <figure class="gphoto"><img src="photos/g_XX.jpg" alt="…" loading="lazy"><figcaption>…</figcaption></figure>
+  </div>
+  ```
+  CSS-классы `.gallery / .gallery.duo / .gphoto` уже есть в `index.html`.
+- День 7 сейчас `gallery single` (только `g_07_a`) — при доборе `g_07_b` вернуть в `duo`.
+
+## Сделано
+
+Маршрут/паромы/офроуд · 13 фото-шапок · реальные фото паромов и части галерей ·
+все внешние ссылки проверены и исправлены · топонимы латиницей · удалено «Питание: самостоятельно» ·
+секция бронирования (паромы/ночлеги/лицензии/бюджет/Google Maps) · задеплоено на GitHub Pages.
