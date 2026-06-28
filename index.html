@@ -147,8 +147,17 @@ a{color:inherit;text-decoration:none}
 }
 .ferry-card{
   background:rgba(255,255,255,.08);border-left:3px solid var(--amber2);
-  padding:1.25rem 1.5rem;border-radius:var(--r);
+  border-radius:var(--r);overflow:hidden;
 }
+.ferry-card-body{padding:1.25rem 1.5rem}
+.ferry-photo{
+  width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--forest);
+}
+.ferry-photo img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .6s ease;
+}
+.ferry-card:hover .ferry-photo img{transform:scale(1.06)}
 .ferry-n{font-size:.65rem;font-weight:600;color:var(--amber2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.35rem}
 .ferry-cross{font-size:1.05rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
 .ferry-op{font-size:.78rem;color:rgba(255,255,255,.6);margin-bottom:.5rem}
@@ -241,6 +250,33 @@ a{color:inherit;text-decoration:none}
 }
 .night-val{font-size:.9rem}
 .night-hint{font-size:.75rem;color:rgba(255,255,255,.45);margin-left:auto}
+
+/* ── PHOTO GALLERY ───────────────────────────────────────────── */
+.gallery{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:.75rem;margin:1.75rem 0;
+}
+.gallery.single{grid-template-columns:1fr;max-width:760px}
+.gallery.duo{grid-template-columns:repeat(2,1fr)}
+.gphoto{
+  position:relative;border-radius:var(--r);overflow:hidden;
+  aspect-ratio:3/2;background:var(--cream);
+  box-shadow:0 4px 18px rgba(0,0,0,.12);
+}
+.gphoto img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .6s ease;
+}
+.gphoto:hover img{transform:scale(1.05)}
+.gphoto figcaption{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:.7rem .85rem .55rem;
+  background:linear-gradient(to top,rgba(0,0,0,.72),transparent);
+  color:#fff;font-size:.72rem;letter-spacing:.02em;line-height:1.35;
+}
+@media(max-width:720px){
+  .gallery,.gallery.duo{grid-template-columns:1fr}
+}
 
 /* ── TIPS SECTION ────────────────────────────────────────────── */
 .tips-section{background:var(--forest)}
@@ -442,32 +478,44 @@ footer em{color:var(--amber);font-style:normal}
   </div>
   <div class="ferry-grid">
     <div class="ferry-card fade-in">
-      <p class="ferry-n">Переправа 1</p>
-      <p class="ferry-cross">Травемюнде → Треллеборг</p>
-      <p class="ferry-op">TT-Line / Stena Line</p>
-      <span class="ferry-dur">7–9 ч · ночной</span>
-      <p class="ferry-notes">Бронируем каюту заранее (за 2–4 нед.). Отправление ~22:00, прибытие ~06:00. Ужин и завтрак на борту.<br><strong>Бронирование:</strong> ttline.com</p>
+      <div class="ferry-photo"><img src="photos/ferry_01.jpg" alt="Паром TT-Line Nils Holgersson выходит в Балтийское море" loading="lazy"></div>
+      <div class="ferry-card-body">
+        <p class="ferry-n">Переправа 1</p>
+        <p class="ferry-cross">Травемюнде → Треллеборг</p>
+        <p class="ferry-op">TT-Line / Stena Line</p>
+        <span class="ferry-dur">7–9 ч · ночной</span>
+        <p class="ferry-notes">Бронируем каюту заранее (за 2–4 нед.). Отправление ~22:00, прибытие ~06:00. Ужин и завтрак на борту.<br><strong>Бронирование:</strong> ttline.com</p>
+      </div>
     </div>
     <div class="ferry-card fade-in">
-      <p class="ferry-n">Переправа 2</p>
-      <p class="ferry-cross">Гейрангер → Хеллесюлт</p>
-      <p class="ferry-op">Fjord1</p>
-      <span class="ferry-dur">~1 ч</span>
-      <p class="ferry-notes">Только летнее расписание (май–октябрь). Машина на борту. Несколько рейсов в день — лучше бронировать место для авто.<br><strong>Бронирование:</strong> fjord1.no</p>
+      <div class="ferry-photo"><img src="photos/ferry_02.jpg" alt="Гейрангер-фьорд — паромный переход" loading="lazy"></div>
+      <div class="ferry-card-body">
+        <p class="ferry-n">Переправа 2</p>
+        <p class="ferry-cross">Гейрангер → Хеллесюлт</p>
+        <p class="ferry-op">Fjord1</p>
+        <span class="ferry-dur">~1 ч</span>
+        <p class="ferry-notes">Только летнее расписание (май–октябрь). Машина на борту. Несколько рейсов в день — лучше бронировать место для авто.<br><strong>Бронирование:</strong> fjord1.no</p>
+      </div>
     </div>
     <div class="ferry-card fade-in">
-      <p class="ferry-n">Переправа 3</p>
-      <p class="ferry-cross">Гудванген → Флом</p>
-      <p class="ferry-op">Lustrabaatane AS</p>
-      <span class="ferry-dur">~2 ч · UNESCO</span>
-      <p class="ferry-notes">Нерёй-фьорд — самый узкий в мире. Машина на борту. В июле — обязательно бронировать за 1–2 дня.<br><strong>Бронирование:</strong> lustrabaatane.no</p>
+      <div class="ferry-photo"><img src="photos/ferry_03.jpg" alt="Нерёй-фьорд — самый узкий фьорд в мире" loading="lazy"></div>
+      <div class="ferry-card-body">
+        <p class="ferry-n">Переправа 3</p>
+        <p class="ferry-cross">Гудванген → Флом</p>
+        <p class="ferry-op">Lustrabaatane AS</p>
+        <span class="ferry-dur">~2 ч · UNESCO</span>
+        <p class="ferry-notes">Нерёй-фьорд — самый узкий в мире. Машина на борту. В июле — обязательно бронировать за 1–2 дня.<br><strong>Бронирование:</strong> lustrabaatane.no</p>
+      </div>
     </div>
     <div class="ferry-card fade-in">
-      <p class="ferry-n">Переправа 4</p>
-      <p class="ferry-cross">Кристиансан → Хиртсхальс</p>
-      <p class="ferry-op">Color Line</p>
-      <span class="ferry-dur">2.5 ч</span>
-      <p class="ferry-notes">Несколько рейсов в день. Рекомендуем вечерний рейс (17:30 или 20:00). Каюта не нужна — удобный паром.<br><strong>Бронирование:</strong> colorline.com</p>
+      <div class="ferry-photo"><img src="photos/ferry_04.jpg" alt="Скоростной паром в порту Хиртсхальс, Дания" loading="lazy"></div>
+      <div class="ferry-card-body">
+        <p class="ferry-n">Переправа 4</p>
+        <p class="ferry-cross">Кристиансан → Хиртсхальс</p>
+        <p class="ferry-op">Color Line</p>
+        <span class="ferry-dur">2.5 ч</span>
+        <p class="ferry-notes">Несколько рейсов в день. Рекомендуем вечерний рейс (17:30 или 20:00). Каюта не нужна — удобный паром.<br><strong>Бронирование:</strong> colorline.com</p>
+      </div>
     </div>
   </div>
   <p style="font-size:.8rem;color:rgba(255,255,255,.45);margin-top:1.5rem">
@@ -542,6 +590,9 @@ footer em{color:var(--amber);font-style:normal}
         <div class="activity-row"><span class="act-dot"></span>Заселение в коттедж у воды, первый ужин в Швеции</div>
       </div>
     </div>
+    <div class="gallery single fade-in">
+      <figure class="gphoto"><img src="photos/g_02_a.jpg" alt="Лесное озеро в Швеции" loading="lazy"><figcaption>Тихое лесное озеро Смоланда — ни лодки, ни звука</figcaption></figure>
+    </div>
     <div class="night-box fade-in">
       <span class="night-lbl">Ночлег</span>
       <span class="night-val">Лесной коттедж, Омберг / оз. Ветерн</span>
@@ -575,6 +626,9 @@ footer em{color:var(--amber);font-style:normal}
         <div class="activity-row"><span class="act-dot"></span>Рыбалка: окунь, щука, форель (лицензия онлайн ~15 EUR/день)</div>
         <div class="activity-row"><span class="act-dot"></span>Ночлег в традиционном красном далекарлийском коттедже</div>
       </div>
+    </div>
+    <div class="gallery single fade-in">
+      <figure class="gphoto"><img src="photos/g_03_a.jpg" alt="Красные деревянные дома, Фалун, Даларна" loading="lazy"><figcaption>Фалунская красная охра — фирменный цвет Даларны</figcaption></figure>
     </div>
     <div class="night-box fade-in">
       <span class="night-lbl">Ночлег</span>
@@ -615,6 +669,9 @@ footer em{color:var(--amber);font-style:normal}
         <span class="callout-lbl">4WD Offroad</span>
         Лесные грунтовки Trysil → Femundsmarka: ~30 км вдоль рек и болот. Лёгкий грейдер, 4Low не нужен, но высокий клиренс обязателен. Terrain Response: Gravel.
       </div>
+    </div>
+    <div class="gallery single fade-in">
+      <figure class="gphoto"><img src="photos/g_04_a.jpg" alt="Национальный парк Фемундсмарка, Норвегия" loading="lazy"><figcaption>Фемундсмарка — дикая глушь на границе Швеции и Норвегии</figcaption></figure>
     </div>
     <div class="night-box fade-in">
       <span class="night-lbl">Ночлег</span>
@@ -684,6 +741,10 @@ footer em{color:var(--amber);font-style:normal}
         <div class="activity-row"><span class="act-dot"></span>Ночлег на горной ферме, домашний ужин</div>
       </div>
     </div>
+    <div class="gallery duo fade-in">
+      <figure class="gphoto"><img src="photos/g_06_a.jpg" alt="Старинный деревянный город Рёрус, ЮНЕСКО" loading="lazy"><figcaption>Рёрус — деревянный город-музей под защитой ЮНЕСКО</figcaption></figure>
+      <figure class="gphoto"><img src="photos/g_06_b.jpg" alt="Мускусный бык в горах Довре" loading="lazy"><figcaption>Мускусный бык — древний обитатель плато Доврефьелль</figcaption></figure>
+    </div>
     <div class="night-box fade-in">
       <span class="night-lbl">Ночлег</span>
       <span class="night-val">Горная ферма (Fjellgård), горы Довре</span>
@@ -723,6 +784,9 @@ footer em{color:var(--amber);font-style:normal}
         <span class="callout-lbl">Паром</span>
         Гейрангер → Хеллесюлт &nbsp;·&nbsp; Fjord1 &nbsp;·&nbsp; ~1 ч &nbsp;·&nbsp; летнее расписание (май–октябрь) &nbsp;·&nbsp; машина на борту &nbsp;·&nbsp; бронировать место для авто: <strong>fjord1.no</strong>
       </div>
+    </div>
+    <div class="gallery single fade-in">
+      <figure class="gphoto"><img src="photos/g_07_a.jpg" alt="Серпантин Тролльстиген, Норвегия" loading="lazy"><figcaption>Тролльстиген — 11 крутых поворотов горного серпантина</figcaption></figure>
     </div>
     <div class="night-box fade-in">
       <span class="night-lbl">Ночлег</span>
