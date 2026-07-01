@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Берлин → Адриатика — Альпийский роуд-трип</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --alpine:#1C3D5E;--alpine2:#274E72;--alpine3:#3A6A90;
+  --terra:#C4683A;--terra2:#D97A4A;
+  --stone:#F5F1E8;--stone2:#EDE8DC;
+  --dark:#1C1C1C;--mid:#5F6872;
+  --white:#FFFFFF;
+  --blue-lt:#D5E6F5;--blue-dk:#1A4A8C;
+  --amber-lt:#FEF0E6;--amber-dk:#8B3A0F;
+  --r:6px;--shadow:0 2px 12px rgba(0,0,0,.10);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;color:var(--dark);background:var(--stone);font-size:16px;line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Playfair Display',Georgia,serif}
+
+.hero{height:100vh;min-height:600px;background-color:var(--alpine);background-size:cover;background-position:center;position:relative;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,61,94,.15) 0%,rgba(28,61,94,.6) 55%,rgba(28,61,94,.92) 100%)}
+.hero-inner{position:relative;z-index:1;color:var(--white);padding:2rem;max-width:760px}
+.hero-sup{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:1.8rem}
+.hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(3.2rem,10vw,8rem);font-weight:700;letter-spacing:.06em;line-height:1;margin-bottom:.5rem}
+.hero-line{width:60px;height:2px;background:var(--terra);margin:1.6rem auto}
+.hero-stats{font-size:.95rem;letter-spacing:.15em;color:rgba(255,255,255,.8)}
+.hero-year{font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;color:var(--terra2);margin-top:1.2rem}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.hero-scroll span{width:1px;height:32px;background:rgba(255,255,255,.3);display:block;animation:scrollPulse 1.6s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:.8;transform:scaleY(1.2)}}
+
+.sticky-nav{position:sticky;top:0;z-index:200;background:var(--alpine);display:flex;align-items:center;gap:.35rem;padding:.65rem 1.25rem;overflow-x:auto;scrollbar-width:none;box-shadow:0 3px 10px rgba(0,0,0,.3)}
+.sticky-nav::-webkit-scrollbar{display:none}
+.sticky-nav a{color:rgba(255,255,255,.65);font-size:.72rem;font-weight:500;letter-spacing:.04em;white-space:nowrap;padding:.28rem .65rem;border-radius:100px;transition:all .2s}
+.sticky-nav a:hover,.sticky-nav a.active{background:var(--terra);color:var(--white)}
+.nav-sep{width:1px;height:14px;background:rgba(255,255,255,.18);flex-shrink:0}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 1.75rem}
+.section{padding:4.5rem 0}
+.section-head{display:flex;align-items:center;gap:1.2rem;margin-bottom:2.5rem}
+.section-head h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.5rem,3vw,2rem);color:var(--alpine);white-space:nowrap}
+.section-head-line{flex:1;height:1px;background:linear-gradient(to right,var(--terra),transparent)}
+
+.ov-table-wrap{overflow-x:auto;border-radius:var(--r);box-shadow:var(--shadow)}
+.ov-table{width:100%;border-collapse:collapse;font-size:.83rem;min-width:680px}
+.ov-table th{background:var(--alpine2);color:var(--white);padding:.65rem .85rem;text-align:left;font-weight:500;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+.ov-table td{padding:.6rem .85rem;border-bottom:1px solid rgba(0,0,0,.055);vertical-align:middle}
+.ov-table tr:nth-child(even) td{background:var(--stone)}
+.ov-table tr:nth-child(odd) td{background:var(--white)}
+.ov-table tr:hover td{background:rgba(196,104,58,.07);transition:background .15s}
+.ov-table tr td:first-child{width:32px}
+.day-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--alpine);color:var(--white);border-radius:50%;font-size:.72rem;font-weight:600;flex-shrink:0}
+.tag{display:inline-block;font-size:.6rem;font-weight:600;padding:.1rem .4rem;border-radius:3px;letter-spacing:.04em;text-transform:uppercase;margin-left:.35rem;vertical-align:middle}
+.tag-f{background:var(--blue-lt);color:var(--blue-dk)}
+.tag-p{background:var(--amber-lt);color:var(--amber-dk)}
+.ov-night{color:var(--mid);font-size:.78rem}
+.map-note{background:var(--stone2);border-left:3px solid var(--terra);border-radius:var(--r);padding:1rem 1.25rem;margin-top:1.25rem;font-size:.82rem;color:var(--mid);line-height:1.5}
+.map-note strong{color:var(--alpine);font-weight:600}
+
+.ferry-section{background:var(--alpine);color:var(--white)}
+.ferry-section .section-head h2{color:var(--white)}
+.ferry-section .section-head-line{background:linear-gradient(to right,var(--terra),transparent)}
+.ferry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.ferry-card{background:rgba(255,255,255,.08);border-left:3px solid var(--terra2);border-radius:var(--r);overflow:hidden}
+.ferry-card-body{padding:1.25rem 1.5rem}
+.ferry-photo{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--alpine2)}
+.ferry-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.ferry-card:hover .ferry-photo img{transform:scale(1.06)}
+.ferry-n{font-size:.65rem;font-weight:600;color:var(--terra2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.35rem}
+.ferry-cross{font-size:1.05rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+.ferry-op{font-size:.78rem;color:rgba(255,255,255,.6);margin-bottom:.5rem}
+.ferry-dur{display:inline-block;background:var(--terra);color:var(--white);font-size:.7rem;font-weight:600;padding:.2rem .55rem;border-radius:3px;letter-spacing:.04em;margin-bottom:.6rem}
+.ferry-notes{font-size:.8rem;color:rgba(255,255,255,.7);border-top:1px solid rgba(255,255,255,.12);padding-top:.6rem;margin-top:.4rem;line-height:1.5}
+
+.day-section{border-bottom:3px solid var(--stone2)}
+.day-photo{width:100%;height:58vh;min-height:320px;max-height:540px;background-size:cover;background-position:center;background-color:var(--alpine);position:relative;display:flex;align-items:flex-end}
+.day-photo-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(28,61,94,.85) 100%)}
+.day-photo-text{position:relative;z-index:1;padding:2rem 1.75rem;width:100%;max-width:1140px;margin:0 auto}
+.day-label{font-size:.65rem;font-weight:600;letter-spacing:.22em;color:var(--terra2);text-transform:uppercase;margin-bottom:.3rem}
+.day-title-text{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.5rem,3.5vw,2.4rem);color:var(--white);line-height:1.2;font-weight:700}
+.day-content{padding:2.5rem 0 2rem}
+.day-subtitle{font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;color:var(--alpine);font-style:italic;margin-bottom:1rem}
+.day-dash{width:36px;height:2px;background:var(--terra);margin-bottom:1.75rem}
+.day-body{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;margin-bottom:1.75rem}
+@media(max-width:720px){.day-body{grid-template-columns:1fr}}
+.day-desc p{color:#383838;margin-bottom:.9rem;line-height:1.8;font-size:.93rem}
+.activities-label{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--alpine);margin-bottom:.85rem}
+.activity-row{display:flex;align-items:flex-start;gap:.65rem;margin-bottom:.6rem;font-size:.87rem;color:#424242;line-height:1.55}
+.act-dot{width:6px;height:6px;background:var(--terra);border-radius:50%;flex-shrink:0;margin-top:.48rem}
+.callouts{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.25rem}
+.callout{padding:.9rem 1.1rem;border-radius:var(--r);font-size:.83rem;line-height:1.55}
+.callout-lbl{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem;display:block}
+.callout-f{background:var(--blue-lt);border-left:3px solid var(--blue-dk)}
+.callout-f .callout-lbl{color:var(--blue-dk)}
+.callout-p{background:var(--amber-lt);border-left:3px solid var(--terra)}
+.callout-p .callout-lbl{color:var(--amber-dk)}
+.night-box{background:var(--alpine);color:var(--white);padding:.9rem 1.25rem;border-radius:var(--r);display:flex;align-items:baseline;gap:.85rem;flex-wrap:wrap}
+.night-lbl{font-size:.65rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--terra2);flex-shrink:0}
+.night-val{font-size:.9rem}
+.night-hint{font-size:.75rem;color:rgba(255,255,255,.45);margin-left:auto}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.75rem;margin:1.75rem 0}
+.gallery.single{grid-template-columns:1fr;max-width:760px}
+.gallery.duo{grid-template-columns:repeat(2,1fr)}
+.gphoto{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/2;background:var(--stone);box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.gphoto img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.gphoto:hover img{transform:scale(1.05)}
+.gphoto figcaption{position:absolute;left:0;right:0;bottom:0;padding:.7rem .85rem .55rem;background:linear-gradient(to top,rgba(0,0,0,.72),transparent);color:#fff;font-size:.72rem;line-height:1.35}
+@media(max-width:720px){.gallery,.gallery.duo{grid-template-columns:1fr}}
+
+.tips-section{background:var(--alpine)}
+.tips-section .section-head h2{color:var(--white)}
+.tips-section .section-head-line{background:linear-gradient(to right,var(--terra),transparent)}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1rem}
+.tips-card{background:rgba(255,255,255,.07);border-radius:var(--r)}
+.tips-head{background:rgba(0,0,0,.2);padding:.75rem 1.2rem;border-radius:var(--r) var(--r) 0 0;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--terra2)}
+.tips-body{padding:1rem 1.2rem}
+.tip-row{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.83rem;color:rgba(255,255,255,.75);line-height:1.5}
+.tip-row:last-child{border-bottom:none}
+.tip-dot{width:5px;height:5px;background:var(--terra);border-radius:50%;flex-shrink:0;margin-top:.5rem}
+footer{background:var(--dark);color:rgba(255,255,255,.4);text-align:center;padding:2.25rem;font-size:.78rem;line-height:2}
+footer em{color:var(--terra);font-style:normal}
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="top" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Hallstatt_-_Zentrum_.JPG/1280px-Hallstatt_-_Zentrum_.JPG')">
+  <div class="hero-inner">
+    <p class="hero-sup">Berlin &nbsp;·&nbsp; Швейцария &nbsp;·&nbsp; Австрия &nbsp;·&nbsp; Словения &nbsp;·&nbsp; Хорватия</p>
+    <h1 class="serif">ЕВРОПА</h1>
+    <div class="hero-line"></div>
+    <p class="hero-stats">14 дней &nbsp;·&nbsp; ~3 100 км &nbsp;·&nbsp; 5 стран &nbsp;·&nbsp; 1 паром</p>
+    <p class="hero-year">Лето 2026</p>
+  </div>
+  <div class="hero-scroll">прокрутить<span></span></div>
+</section>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav" id="sticky-nav">
+  <a href="#overview">Маршрут</a>
+  <div class="nav-sep"></div>
+  <a href="#ferries">Паром</a>
+  <div class="nav-sep"></div>
+  <a href="#day-1">1</a><a href="#day-2">2</a><a href="#day-3">3</a>
+  <a href="#day-4">4</a><a href="#day-5">5</a><a href="#day-6">6</a>
+  <a href="#day-7">7</a><a href="#day-8">8</a><a href="#day-9">9</a>
+  <a href="#day-10">10</a><a href="#day-11">11</a><a href="#day-12">12</a>
+  <a href="#day-13">13</a><a href="#day-14">14</a>
+  <div class="nav-sep"></div>
+  <a href="#tips">Советы</a>
+  <div class="nav-sep"></div>
+  <a href="#booking">Бронирование</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview" class="section">
+<div class="wrap">
+  <div class="section-head"><h2 class="serif">Маршрут одним взглядом</h2><div class="section-head-line"></div></div>
+  <div class="ov-table-wrap fade-in">
+  <table class="ov-table">
+    <thead><tr><th></th><th>День</th><th>Маршрут</th><th>В пути</th><th>Главное</th><th>Ночлег</th></tr></thead>
+    <tbody>
+      <tr><td><span class="day-badge">1</span></td><td><a href="#day-1">День 1</a></td><td>Berlin → Rothenburg ob der Tauber</td><td>~4.5 ч</td><td>Романтическая дорога, стены XV века</td><td class="ov-night">Rothenburg</td></tr>
+      <tr><td><span class="day-badge">2</span></td><td><a href="#day-2">День 2</a></td><td>Rothenburg → Чёрный лес / Titisee</td><td>~3.5 ч</td><td>Серпантин B500, Mummelsee, Triberg</td><td class="ov-night">Titisee-Neustadt</td></tr>
+      <tr><td><span class="day-badge">3</span></td><td><a href="#day-3">День 3</a></td><td>Titisee → Rheinfall → Luzern → Interlaken</td><td>~4 ч</td><td>Крупнейший водопад Европы, Капельбрюке</td><td class="ov-night">Lauterbrunnen</td></tr>
+      <tr><td><span class="day-badge">4</span></td><td><a href="#day-4">День 4</a></td><td>Долина Lauterbrunnen (весь день)</td><td>—</td><td>72 водопада, Trümmelbach внутри скалы</td><td class="ov-night">Lauterbrunnen</td></tr>
+      <tr><td><span class="day-badge">5</span></td><td><a href="#day-5">День 5</a></td><td>Lauterbrunnen → Grimsel + Furka → Andermatt</td><td>~5 ч</td><td>Grimsel (1965 м), Furka (2431 м) <span class="tag tag-p">ПЕРЕВАЛ</span></td><td class="ov-night">Andermatt</td></tr>
+      <tr><td><span class="day-badge">6</span></td><td><a href="#day-6">День 6</a></td><td>Andermatt → Ruinaulta → Engadine (Pontresina)</td><td>~4.5 ч</td><td>Рейнское ущелье, перевал Albula <span class="tag tag-p">ПЕРЕВАЛ</span></td><td class="ov-night">Pontresina</td></tr>
+      <tr><td><span class="day-badge">7</span></td><td><a href="#day-7">День 7</a></td><td>Pontresina → Stelvio (2757 м) → Reschensee → Hall in Tirol</td><td>~6 ч</td><td>Лучшая дорога в Альпах <span class="tag tag-p">ПЕРЕВАЛ</span></td><td class="ov-night">Hall in Tirol</td></tr>
+      <tr><td><span class="day-badge">8</span></td><td><a href="#day-8">День 8</a></td><td>Hall in Tirol → Grossglockner → Hallstatt</td><td>~5.5 ч</td><td>Гросглокнер (3031 м), ледник, Хальштатт <span class="tag tag-p">ПЕРЕВАЛ</span></td><td class="ov-night">Hallstatt</td></tr>
+      <tr><td><span class="day-badge">9</span></td><td><a href="#day-9">День 9</a></td><td>Hallstatt → Salzkammergut → Bled</td><td>~3.5 ч</td><td>Зальцкаммергут, первое утро в Словении</td><td class="ov-night">Bled</td></tr>
+      <tr><td><span class="day-badge">10</span></td><td><a href="#day-10">День 10</a></td><td>Bled → Vršič Pass → Soča / Bovec</td><td>~3.5 ч</td><td>50 поворотов, бирюзовая Соча <span class="tag tag-p">ПЕРЕВАЛ</span></td><td class="ov-night">Bovec</td></tr>
+      <tr><td><span class="day-badge">11</span></td><td><a href="#day-11">День 11</a></td><td>Bovec (база, весь день)</td><td>—</td><td>Водопад Козьяк, Наполеонов мост, рафтинг</td><td class="ov-night">Bovec</td></tr>
+      <tr><td><span class="day-badge">12</span></td><td><a href="#day-12">День 12</a></td><td>Bovec → Lipica → Piran → Rovinj</td><td>~4 ч</td><td>Пиран — венецианский порт Словении</td><td class="ov-night">Rovinj</td></tr>
+      <tr><td><span class="day-badge">13</span></td><td><a href="#day-13">День 13</a></td><td>Rovinj → Pula → Zadar</td><td>~3.5 ч</td><td>Римский амфитеатр, морской орган</td><td class="ov-night">Zadar</td></tr>
+      <tr><td><span class="day-badge">14</span></td><td><a href="#day-14">День 14</a></td><td>Zadar → Split → паром</td><td>~2 ч + паром</td><td>Диоклетианов дворец, ночной паром <span class="tag tag-f">ПАРОМ</span></td><td class="ov-night">Каюта Jadrolinija</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div style="margin-top:1.5rem" class="fade-in">
+    <a href="https://www.google.com/maps/dir/Berlin,+Germany/Rothenburg+ob+der+Tauber,+Germany/Titisee-Neustadt,+Germany/Interlaken,+Switzerland/Andermatt,+Switzerland/Pontresina,+Switzerland/Hall+in+Tirol,+Austria/Hallstatt,+Austria/Bled,+Slovenia/Bovec,+Slovenia/Piran,+Slovenia/Rovinj,+Croatia/Split,+Croatia/Ancona,+Italy"
+      target="_blank" rel="noopener"
+      style="display:inline-flex;align-items:center;gap:.6rem;background:var(--alpine);color:var(--white);padding:.75rem 1.4rem;border-radius:var(--r);font-size:.88rem;font-weight:500">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Открыть маршрут в Google Maps
+    </a>
+  </div>
+  <p class="map-note fade-in"><strong>Маршрут:</strong> Berlin → Rothenburg → Titisee → Rheinfall → Interlaken → Andermatt → Pontresina → Stelvio → Reschensee → Hallstatt → Bled → Vršič → Bovec → Piran → Rovinj → Split → (паром) → Ancona</p>
+</div>
+</section>
+
+<!-- FERRIES -->
+<section id="ferries" class="section ferry-section">
+<div class="wrap">
+  <div class="section-head"><h2 class="serif">Переправа: Split → Ancona</h2><div class="section-head-line"></div></div>
+  <div class="ferry-grid">
+    <div class="ferry-card fade-in">
+      <div class="ferry-photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Split_080620-133710-IMG_0968x.jpg/640px-Split_080620-133710-IMG_0968x.jpg" alt="Порт Сплит" loading="lazy"></div>
+      <div class="ferry-card-body">
+        <p class="ferry-n">Главная переправа</p>
+        <p class="ferry-cross">Split → Ancona</p>
+        <p class="ferry-op">Jadrolinija</p>
+        <span class="ferry-dur">~10.5 ч · ночной</span>
+        <p class="ferry-notes">Отправление ~21:00–23:00, прибытие ~07:30 в Анкону. Машина на борту. Берите ночную каюту (2-berth cabin × 2). Бронировать за 6–8 недель в июле–августе.<br><strong>Бронирование:</strong> <a href="https://www.jadrolinija.hr" target="_blank" rel="noopener" style="color:var(--terra2)">jadrolinija.hr</a></p>
+      </div>
+    </div>
+    <div class="ferry-card fade-in">
+      <div class="ferry-photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Roman_Forum_in_Zadar%2C_Croatia_%2848607823862%29.jpg/640px-Roman_Forum_in_Zadar%2C_Croatia_%2848607823862%29.jpg" alt="Задар с воздуха" loading="lazy"></div>
+      <div class="ferry-card-body">
+        <p class="ferry-n">Альтернатива</p>
+        <p class="ferry-cross">Zadar → Ancona</p>
+        <p class="ferry-op">Jadrolinija</p>
+        <span class="ferry-dur">~8 ч</span>
+        <p class="ferry-notes">Короче на 2 часа. Подходит, если хочется выехать раньше или сократить хорватский участок. Та же компания, тот же сайт.<br><strong>Бронирование:</strong> <a href="https://www.jadrolinija.hr" target="_blank" rel="noopener" style="color:var(--terra2)">jadrolinija.hr</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- DAY 1 -->
+<section class="day-section" id="day-1">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Rothenburg_BW_4.JPG/1280px-Rothenburg_BW_4.JPG')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 1 &nbsp;·&nbsp; Berlin → Rothenburg ob der Tauber &nbsp;·&nbsp; ~470 км, ~4.5 ч</p>
+      <h2 class="day-title-text">Романтическая дорога</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Средневековые стены в первый же вечер</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Из Берлина на юг по автобану, через Баварию. Примерно через 4 часа начинается Romantische Strasse — не туристический маршрут, а просто старые города, которые здесь всегда были.</p>
+        <p>Ротенбург-об-дер-Таубер за крепостными стенами XV века: булыжные мостовые, резные фахверковые дома, крытые галереи стен с видом на долину реки Tauber. Вечером — прогулка по периметру стены.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Выезд из Berlin, автобан A9/A7 на юг (~08:30)</div>
+        <div class="activity-row"><span class="act-dot"></span>Остановка у Нюрнберга: кофе и заправка</div>
+        <div class="activity-row"><span class="act-dot"></span>Rothenburg: прогулка по крепостным стенам</div>
+        <div class="activity-row"><span class="act-dot"></span>Marktplatz, ратуша, средневековые переулки</div>
+        <div class="activity-row"><span class="act-dot"></span>Ужин в старом городе</div>
+      </div>
+    </div>
+    <div class="night-box fade-in"><span class="night-lbl">Ночлег</span><span class="night-val">Rothenburg ob der Tauber — гастхоф в историческом центре</span></div>
+  </div>
+</section>
+
+<!-- DAY 2 -->
+<section class="day-section" id="day-2">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Titisee.jpg/1280px-Titisee.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 2 &nbsp;·&nbsp; Rothenburg → Чёрный лес / Titisee &nbsp;·&nbsp; ~230 км, ~3.5 ч</p>
+      <h2 class="day-title-text">Schwarzwald — B500</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Горный серпантин и лес без конца</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>B500 Schwarzwald-Hochstrasse идёт по гребню хребта на высоте ~1000 м: плотный пихтовый лес вдруг открывается на белые Альпы вдали — и снова закрывается.</p>
+        <p>Mummelsee — чёрное кратерное озеро прямо у дороги. Водопады Triberg — самые высокие в Германии, три каскада с суммарным падением 163 м. Titisee встречает вечером: горное озеро, первый запах Альп.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>B500 Schwarzwald-Hochstrasse: горный серпантин по гребню</div>
+        <div class="activity-row"><span class="act-dot"></span>Mummelsee — кратерное озеро у дороги (10 мин.)</div>
+        <div class="activity-row"><span class="act-dot"></span>Водопады Triberg — три каскада 163 м</div>
+        <div class="activity-row"><span class="act-dot"></span>Titisee — ужин у горного озера</div>
+      </div>
+    </div>
+    <div class="night-box fade-in"><span class="night-lbl">Ночлег</span><span class="night-val">Titisee-Neustadt — отель у озера</span></div>
+  </div>
+</section>
+
+<!-- DAY 3 -->
+<section class="day-section" id="day-3">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Rheinfall.jpg/1280px-Rheinfall.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 3 &nbsp;·&nbsp; Titisee → Rheinfall → Luzern → Interlaken &nbsp;·&nbsp; ~250 км, ~4 ч</p>
+      <h2 class="day-title-text">Рейнский водопад → Швейцария</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Крупнейший водопад Европы — и потом сразу в горы</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Рейнский водопад у Шаффхаузена: 150 м в ширину, 23 м в высоту, рёв слышен за 500 метров. Можно зайти на скалу посреди водопада — туда идёт лодка (5 мин.).</p>
+        <p>Люцерн: Каппельбрюке — деревянный мост 1333 года с картинами внутри под крышей. Потом — Интерлакен между двух озёр. За городом — Бернские Альпы стеной.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Рейнский водопад у Schaffhausen — лодка на скалу (1 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Люцерн: Kapellbrücke и набережная (~1.5 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Дорога вдоль Brienzersee и Thunersee</div>
+        <div class="activity-row"><span class="act-dot"></span>Интерлакен и переезд в Лаутербруннен</div>
+      </div>
+    </div>
+    <div class="night-box fade-in"><span class="night-lbl">Ночлег</span><span class="night-val">Lauterbrunnen — гостевой дом в долине</span></div>
+  </div>
+</section>
+
+<!-- DAY 4 -->
+<section class="day-section" id="day-4">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Lauterbrunnen.jpg/1280px-Lauterbrunnen.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 4 &nbsp;·&nbsp; Долина Lauterbrunnen (весь день)</p>
+      <h2 class="day-title-text">Семьдесят два водопада</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Долина, которую сделали слишком красивой</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>72 водопада по обоим склонам вертикальных скал. Staubbachfall падает с 297 м прямо над деревней. Главное — Trümmelbach Falls: водопад внутри скалы, 10 каскадов в пещерной системе. Туда можно войти пешком.</p>
+        <p>Выше — Grindelwald под стеной Eiger. Северная стена Айгера с 1938 года считается одной из сложнейших в Альпах. Смотреть на неё снизу уже достаточно.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Staubbachfall — водопад 297 м у деревни</div>
+        <div class="activity-row"><span class="act-dot"></span>Trümmelbach Falls — водопад внутри горы (~1.5 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Grindelwald — вид на Северную стену Eiger</div>
+        <div class="activity-row"><span class="act-dot"></span>Прогулка Grindelwald First (пешком или фуникулёр)</div>
+        <div class="activity-row"><span class="act-dot"></span>Возврат в долину, ужин в Lauterbrunnen</div>
+      </div>
+    </div>
+    <div class="gallery duo fade-in">
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Lauterbrunnen_Staubbach.jpg/640px-Lauterbrunnen_Staubbach.jpg" alt="Staubbachfall" loading="lazy"><figcaption>Staubbachfall — 297 м свободного падения</figcaption></figure>
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Grindelwald_View_02.jpg/640px-Grindelwald_View_02.jpg" alt="Grindelwald с Eiger" loading="lazy"><figcaption>Grindelwald под Северной стеной Eiger</figcaption></figure>
+    </div>
+    <div class="night-box fade-in"><span class="night-lbl">Ночлег</span><span class="night-val">Lauterbrunnen — второй день в долине</span></div>
+  </div>
+</section>
+
+<!-- DAY 5 -->
+<section class="day-section" id="day-5">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Furkapass.jpg/1280px-Furkapass.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 5 &nbsp;·&nbsp; Lauterbrunnen → Grimsel + Furka → Andermatt &nbsp;·&nbsp; ~160 км, ~5 ч</p>
+      <h2 class="day-title-text">Гримзель и Фурка: два перевала за день</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Лунный пейзаж, ледник Роны и та самая дорога из Голдфингера</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Перевал Grimsel (1965 м): серое базальтовое плато, ледниковое озеро Grimselsee цвета свинца, плотины 1930-х годов. Это не пейзажный журнал — это другая планета.</p>
+        <p>Перевал Furka (2431 м): здесь Джеймс Бонд гонялся за Золотым Астоном в «Голдфингере». Ледник Роны — прямо у дороги. Спуск серпантинами в Андерматт — один из лучших дней маршрута.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Подъём на Grimsel Pass (1965 м) — лунный пейзаж</div>
+        <div class="activity-row"><span class="act-dot"></span>Озеро Grimselsee у плотин ГЭС</div>
+        <div class="activity-row"><span class="act-dot"></span>Перевал Furka (2431 м) — самый высокий в маршруте</div>
+        <div class="activity-row"><span class="act-dot"></span>Ледник Роны у дороги — пешая остановка</div>
+        <div class="activity-row"><span class="act-dot"></span>Спуск в Andermatt — горная деревня 1444 м</div>
+      </div>
+    </div>
+    <div class="callouts fade-in">
+      <div class="callout callout-p">
+        <span class="callout-lbl">Сезон перевалов</span>
+        Grimsel и Furka открыты ~май–октябрь. Статус в реальном времени: <strong>alpenpaesse.ch</strong> — проверять за день до выезда.
+      </div>
+    </div>
+    <div class="gallery duo fade-in">
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Grimselsee.jpg" alt="Озеро Grimselsee" loading="lazy"><figcaption>Grimselsee — ледниковое озеро на перевале Гримзель</figcaption></figure>
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Furkapass_westside.jpg" alt="Ледник Роны" loading="lazy"><figcaption>Ледник Роны у перевала Фурка</figcaption></figure>
+    </div>
+    <div class="night-box fade-in"><span class="night-lbl">Ночлег</span><span class="night-val">Andermatt — горная деревня на 1444 м</span></div>
+  </div>
+</section>
+
+<!-- DAY 6 -->
+<section class="day-section" id="day-6">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Ruinaulta.jpg/1280px-Ruinaulta.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 6 &nbsp;·&nbsp; Andermatt → Ruinaulta → Pontresina (Engadine) &nbsp;·&nbsp; ~180 км, ~4.5 ч</p>
+      <h2 class="day-title-text">Рейнское ущелье → Энгадин</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Швейцарский Гранд-Каньон и долина, которая лучше Сен-Морица</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Ruinaulta — 13 км белых известняковых стен над молодым Рейном. Лучший вид — с тропы вдоль берега у Versam или из окна поезда Glacier Express.</p>
+        <p>Перевал Albula (2315 м) ведёт в Верхний Энгадин. Понтрезина — в 5 км от Сен-Морица, те же горы и озёра, вдвое дешевле.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Перевал Oberalp (2046 м) — из Андерматта в Граубюнден</div>
+        <div class="activity-row"><span class="act-dot"></span>Ruinaulta — тропа вдоль Рейнского ущелья (1–2 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Перевал Albula (2315 м) в Верхний Энгадин</div>
+        <div class="activity-row"><span class="act-dot"></span>Прогулка вдоль озёр Silvaplanersee или Silsersee</div>
+      </div>
+    </div>
+    <div class="callouts fade-in">
+      <div class="callout callout-p">
+        <span class="callout-lbl">Перевал Albula</span>
+        Открыт ~май–ноябрь. Альтернатива — туннель Albula (круглый год). Статус: <strong>alpenpaesse.ch</strong>
+      </div>
+    </div>
+    <div class="night-box fade-in"><span class="night-lbl">Ночлег</span><span class="night-val">Pontresina — деревня в 5 км от Сен-Морица</span><span class="night-hint">Дешевле и тише</span></div>
+  </div>
+</section>
+
+<!-- DAY 7 -->
+<section class="day-section" id="day-7">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Stelvio_Pass_Bolzano_side_1.jpg/1280px-Stelvio_Pass_Bolzano_side_1.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 7 &nbsp;·&nbsp; Pontresina → Passo Stelvio (2757 м) → Reschensee → Hall in Tirol &nbsp;·&nbsp; ~260 км, ~6 ч</p>
+      <h2 class="day-title-text">Перевал Стельвио</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Лучшая дорога в Альпах — и затопленная колокольня в озере</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Passo Stelvio — 2757 м, третья по высоте асфальтированная дорога в Альпах. На северной стороне — 48 пронумерованных поворотов. Top Gear назвал Стельвио лучшей дорогой в мире. Спорить не хочется.</p>
+        <p>Дальше — в Австрию через Решен. На дне озера Reschensee торчит средневековая колокольня: в 1950 году долину затопили ради плотины, деревня ушла под воду, колокольня осталась.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Bernina Pass (2328 м) из Понтрезины в Тирано, Италия</div>
+        <div class="activity-row"><span class="act-dot"></span>Passo Stelvio (2757 м) — 48 поворотов, вид с вершины</div>
+        <div class="activity-row"><span class="act-dot"></span>Спуск в Val Venosta, дорога вдоль реки Adige</div>
+        <div class="activity-row"><span class="act-dot"></span>Озеро Reschensee — колокольня посреди воды</div>
+        <div class="activity-row"><span class="act-dot"></span>Hall in Tirol — средневековый город у Инна</div>
+      </div>
+    </div>
+    <div class="callouts fade-in">
+      <div class="callout callout-p">
+        <span class="callout-lbl">Перевал Стельвио — сезон</span>
+        Открыт ~конец мая – октябрь. Статус: <strong>provinz.bz.it</strong> (провинция Больцано).
+      </div>
+    </div>
+    <div class="gallery duo fade-in">
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Stelvio_Pass_Bolzano_side_1.jpg/640px-Stelvio_Pass_Bolzano_side_1.jpg" alt="48 поворотов перевала Стельвио" loading="lazy"><figcaption>48 пронумерованных поворотов — северная сторона Стельвио</figcaption></figure>
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Reschensee_with_Graun_Church_tower_and_boat.jpg/960px-Reschensee_with_Graun_Church_tower_and_boat.jpg" alt="Колокольня в озере Reschensee" loading="lazy"><figcaption>Reschensee — колокольня затопленной деревни</figcaption></figure>
+    </div>
+    <div class="night-box fade-in"><span class="night-lbl">Ночлег</span><span class="night-val">Hall in Tirol — средневековый город в 10 км от Инсбрука</span><span class="night-hint">Дешевле Инсбрука</span></div>
+  </div>
+</section>
+
+<!-- DAY 8 -->
+<section class="day-section" id="day-8">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Hallstatt_-_Zentrum_.JPG/1280px-Hallstatt_-_Zentrum_.JPG')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 8 &nbsp;·&nbsp; Hall in Tirol → Grossglockner → Hallstatt &nbsp;·&nbsp; ~215 км, ~5.5 ч</p>
+      <h2 class="day-title-text">Гросглокнер → Хальштатт</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Высшая точка маршрута — и самая красивая деревня Европы</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Grossglockner Hochalpenstrasse — самая высокая асфальтированная дорога Австрии. На Franz-Josefs-Höhe (2369 м): ледник Пастерце, пик Гросглокнер (3798 м) в облаках или на виду — как повезёт. Дорога платная, ~€38 за машину.</p>
+        <p>После спуска — Хальштатт. Деревня примерно в 60 домов у подножия горы и у озера одновременно. В 2012 году китайская компания построила точную копию Хальштатта в провинции Гуандун. Оригинал всё равно лучше.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Grossglockner Hochalpenstrasse — высокогорная дорога (платная, ~€38)</div>
+        <div class="activity-row"><span class="act-dot"></span>Franz-Josefs-Höhe (2369 м) — вид на ледник Пастерце</div>
+        <div class="activity-row"><span class="act-dot"></span>Edelweissspitze (2571 м) — панорама на 37 трёхтысячников</div>
+        <div class="activity-row"><span class="act-dot"></span>Спуск в Зальцкаммергут, дорога до Хальштатта</div>
+        <div class="activity-row"><span class="act-dot"></span>Хальштатт: прогулка по деревне, вечерний вид на озеро</div>
+      </div>
+    </div>
+    <div class="callouts fade-in">
+      <div class="callout callout-p">
+        <span class="callout-lbl">Grossglockner — оплата</span>
+        Toll ~€38 за машину, оплата у ворот (карта или наличные). Предварительного бронирования нет. Дорога открыта ~май–октябрь: <strong>grossglockner.at</strong>
+      </div>
+    </div>
+    <div class="gallery duo fade-in">
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Grossglockner.jpg" alt="Ледник Пастерце и Гросглокнер" loading="lazy"><figcaption>Вид с Franz-Josefs-Höhe — ледник Пастерце</figcaption></figure>
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Hallstatt_-_Zentrum_.JPG/640px-Hallstatt_-_Zentrum_.JPG" alt="Хальштатт на озере" loading="lazy"><figcaption>Хальштатт — деревня, которую скопировали в Китае</figcaption></figure>
+    </div>
+    <div class="night-box fade-in"><span class="night-lbl">Ночлег</span><span class="night-val">Hallstatt — бронировать за 2–3 месяца!</span><span class="night-hint">Альтернатива: Obertraun (10 мин.)</span></div>
+  </div>
+</section>
+
+<!-- DAY 9 -->
+<section class="day-section" id="day-9">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Lake_Bled_from_the_Mountain.jpg/1280px-Lake_Bled_from_the_Mountain.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 9 &nbsp;·&nbsp; Hallstatt → Salzkammergut → Bled &nbsp;·&nbsp; ~220 км, ~3.5 ч</p>
+      <h2 class="day-title-text">Словения. Озеро Блед</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Первое утро в Словении</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Из Австрии в Словению через Вурценпасс — граница без очередей. Зальцкаммергут по пути: красивая озёрная дорога вдоль Wolfgangsee и Fuschlsee.</p>
+        <p>Блед просто стоит у своего озера. Остров с церковью посередине. Замок на скале над водой. Сработало. Если приехать к рассвету на смотровую Ojstrica — туристов ещё нет. Горцы знают это уже давно.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Зальцкаммергут — озёрная дорога Wolfgangsee, Fuschlsee</div>
+        <div class="activity-row"><span class="act-dot"></span>Въезд в Словению через Wurzenpass</div>
+        <div class="activity-row"><span class="act-dot"></span>Озеро Блед — прибытие до заката</div>
+        <div class="activity-row"><span class="act-dot"></span>Boat (Pletna) до острова — колокольня с желанием</div>
+        <div class="activity-row"><span class="act-dot"></span>Bled Castle — вид с утёса над озером</div>
+      </div>
+    </div>
+    <div class="gallery single fade-in">
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Lake_Bled_from_the_Mountain.jpg/800px-Lake_Bled_from_the_Mountain.jpg" alt="Озеро Блед с островом" loading="lazy"><figcaption>Озеро Блед — остров с церковью, замок на скале</figcaption></figure>
+    </div>
+    <div class="night-box fade-in"><span class="night-lbl">Ночлег</span><span class="night-val">Bled — апартаменты или гостиница у озера</span></div>
+  </div>
+</section>
+
+<!-- DAY 10 -->
+<section class="day-section" id="day-10">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Vrsic2.JPG/1280px-Vrsic2.JPG')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 10 &nbsp;·&nbsp; Bled → Vršič Pass → Soča / Bovec &nbsp;·&nbsp; ~110 км, ~3.5 ч</p>
+      <h2 class="day-title-text">Перевал Вршич → Соча</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">50 поворотов — и вдруг бирюзовая река</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Перевал Вршич (1611 м): 24 пронумерованных поворота на подъёме, 26 на спуске. Дорогу построили российские военнопленные в 1916–1917 годах — у перевала есть их деревянная часовня.</p>
+        <p>За перевалом — спуск в долину реки Соча. Река появляется вдруг: ярко-бирюзового цвета, как будто подсвеченная снизу. Это не фотошоп — так выглядит талая вода Триглавского ледника через мрамор.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Kranjska Gora — кофе перед перевалом</div>
+        <div class="activity-row"><span class="act-dot"></span>Vršič Pass (1611 м) — 50 поворотов, Русская часовня</div>
+        <div class="activity-row"><span class="act-dot"></span>Первый вид на реку Соча сверху</div>
+        <div class="activity-row"><span class="act-dot"></span>Bovec — база в Юлийских Альпах</div>
+        <div class="activity-row"><span class="act-dot"></span>Вечерняя прогулка вдоль Сочи</div>
+      </div>
+    </div>
+    <div class="gallery duo fade-in">
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Vrsic2.JPG/640px-Vrsic2.JPG" alt="Серпантин перевала Вршич" loading="lazy"><figcaption>Вршич — 50 поворотов в Юлийских Альпах</figcaption></figure>
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Soca_4.jpg/640px-Soca_4.jpg" alt="Бирюзовая река Соча" loading="lazy"><figcaption>Соча — бирюзовый цвет из-за растворённого мрамора</figcaption></figure>
+    </div>
+    <div class="night-box fade-in"><span class="night-lbl">Ночлег</span><span class="night-val">Bovec — база в Юлийских Альпах</span></div>
+  </div>
+</section>
+
+<!-- DAY 11 -->
+<section class="day-section" id="day-11">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/8/83/Soca_4.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 11 &nbsp;·&nbsp; Bovec — база (весь день)</p>
+      <h2 class="day-title-text">Соча не отпускает</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Остаёмся. Соча сегодня главный объект</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Водопад Козьяк прячется в пещере — узкий каньон, потом арка, потом 15-метровый поток в изумрудный бассейн. Дорога к нему: 45 минут лёгкого трека по лесу.</p>
+        <p>Наполеонов мост через Сочу: мраморная арка 1750-х годов над прозрачной водой. Если хочется активнее — рафтинг или каяк. Операторы в самом Бовеце, бронировать накануне.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Водопад Козьяк — 45 мин. трек, пещерный каскад</div>
+        <div class="activity-row"><span class="act-dot"></span>Наполеонов мост — мраморная арка над Сочей</div>
+        <div class="activity-row"><span class="act-dot"></span>Рафтинг или каяк на Соче (Sport Mix Bovec)</div>
+        <div class="activity-row"><span class="act-dot"></span>Купание в реке — температура ~10°C даже в июле</div>
+        <div class="activity-row"><span class="act-dot"></span>Kobarid — музей Первой мировой, итальянский ужин</div>
+      </div>
+    </div>
+    <div class="gallery duo fade-in">
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Slap_Kozjak.jpg/960px-Slap_Kozjak.jpg" alt="Водопад Козьяк в пещере" loading="lazy"><figcaption>Козьяк — водопад в пещере, 15 м высотой</figcaption></figure>
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Kobarid1.JPG/640px-Kobarid1.JPG" alt="Наполеонов мост над Сочей" loading="lazy"><figcaption>Наполеонов мост — мрамор над изумрудной водой</figcaption></figure>
+    </div>
+    <div class="night-box fade-in"><span class="night-lbl">Ночлег</span><span class="night-val">Bovec — второй день</span></div>
+  </div>
+</section>
+
+<!-- DAY 12 -->
+<section class="day-section" id="day-12">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Piran%2C_Slovenia%2C_Viewpoint.jpg/1280px-Piran%2C_Slovenia%2C_Viewpoint.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 12 &nbsp;·&nbsp; Bovec → Lipica → Piran → Rovinj &nbsp;·&nbsp; ~240 км, ~4 ч</p>
+      <h2 class="day-title-text">Карст → Пиран → Хорватия</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Белые лошади, венецианский порт и первый взгляд на Адриатику</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Карстовое плато: белая известняковая пустошь, можжевельник, редкие сосны. Lipica — конный завод, где разводят Липицанских белых лошадей с 1580 года. Те самые, что выступают в Испанской школе верховой езды в Вене.</p>
+        <p>Пиран — идеально сохранившийся средневековый венецианский портовый городок. Вся Словения помещается здесь. Дальше — граница Хорватии и Ровинь на выступе над морем.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Karst — белое плато, словенские деревни</div>
+        <div class="activity-row"><span class="act-dot"></span>Lipica — Липицанские лошади, конный завод с 1580 г.</div>
+        <div class="activity-row"><span class="act-dot"></span>Piran — Tartinijev trg, кампанила, набережная (~2 ч)</div>
+        <div class="activity-row"><span class="act-dot"></span>Граница Хорватии, Istria</div>
+        <div class="activity-row"><span class="act-dot"></span>Rovinj — ужин в старом городе на мысу</div>
+      </div>
+    </div>
+    <div class="gallery duo fade-in">
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Piran%2C_Slovenia%2C_Viewpoint.jpg/640px-Piran%2C_Slovenia%2C_Viewpoint.jpg" alt="Пиран с моря" loading="lazy"><figcaption>Пиран — венецианский портовый город Словении</figcaption></figure>
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Rovinj%2C_Croatia.jpg" alt="Ровинь, Хорватия" loading="lazy"><figcaption>Ровинь — старый город на полуострове над морем</figcaption></figure>
+    </div>
+    <div class="night-box fade-in"><span class="night-lbl">Ночлег</span><span class="night-val">Rovinj — апартаменты в старом городе или рядом</span></div>
+  </div>
+</section>
+
+<!-- DAY 13 -->
+<section class="day-section" id="day-13">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Roman_Forum_in_Zadar%2C_Croatia_%2848607823862%29.jpg/1280px-Roman_Forum_in_Zadar%2C_Croatia_%2848607823862%29.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 13 &nbsp;·&nbsp; Rovinj → Pula → Zadar &nbsp;·&nbsp; ~230 км, ~3.5 ч</p>
+      <h2 class="day-title-text">Пула → Задар</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Римский амфитеатр и морской орган</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Амфитеатр в Пуле построен в I веке нашей эры и вмещал 23 000 человек. Сейчас там проходят концерты. Это третий по размеру сохранившийся амфитеатр в мире, и он просто стоит в центре хорватского города.</p>
+        <p>Задар: морской орган — ступени у воды с трубами. Волны заходят, давление меняется, трубы играют. Ненотированную музыку. Alfred Hitchcock сказал, что лучший закат в мире — здесь. Посмотрим.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Pula — амфитеатр I века н.э. (30–45 мин. осмотр)</div>
+        <div class="activity-row"><span class="act-dot"></span>Дорога вдоль Далматинского побережья</div>
+        <div class="activity-row"><span class="act-dot"></span>Заdar — Sea Organ: морской орган у набережной</div>
+        <div class="activity-row"><span class="act-dot"></span>Sun Salutation — инсталляция, собирающая солнечный свет</div>
+        <div class="activity-row"><span class="act-dot"></span>Закат над Адриатикой (по Хичкоку — лучший в мире)</div>
+      </div>
+    </div>
+    <div class="gallery duo fade-in">
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Pula_Aerial_View.jpg/640px-Pula_Aerial_View.jpg" alt="Амфитеатр Пулы с воздуха" loading="lazy"><figcaption>Pula Arena — амфитеатр I века, 23 000 мест</figcaption></figure>
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Zadar-Sea-Organ.jpg" alt="Морской орган Задара" loading="lazy"><figcaption>Морской орган — Задар, волны сами выбирают ноты</figcaption></figure>
+    </div>
+    <div class="night-box fade-in"><span class="night-lbl">Ночлег</span><span class="night-val">Zadar — старый город или апартаменты рядом</span></div>
+  </div>
+</section>
+
+<!-- DAY 14 -->
+<section class="day-section" id="day-14">
+  <div class="day-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Split_080620-133710-IMG_0968x.jpg/1280px-Split_080620-133710-IMG_0968x.jpg')">
+    <div class="day-photo-overlay"></div>
+    <div class="day-photo-text wrap">
+      <p class="day-label">День 14 &nbsp;·&nbsp; Zadar → Split → паром в Италию &nbsp;·&nbsp; ~160 км, ~2 ч + 10.5 ч паром</p>
+      <h2 class="day-title-text">Split → Паром</h2>
+    </div>
+  </div>
+  <div class="wrap day-content">
+    <p class="day-subtitle">Задар провожает, Сплит прощается, паром уводит в Италию</p>
+    <div class="day-dash"></div>
+    <div class="day-body">
+      <div class="day-desc fade-in">
+        <p>Сплит — Диоклетианов дворец. Римский император построил его в 305 году как личную резиденцию для отставки. Сейчас внутри дворца живут люди: квартиры, рестораны, галереи, сувенирные лавки — в комнатах цезаря.</p>
+        <p>Вечером — паром Jadrolinija в Анкону. Отплытие ~21:00, прибытие утром. Ночь на борту над Адриатикой. Утром — Италия.</p>
+      </div>
+      <div class="fade-in">
+        <p class="activities-label">Что делаем</p>
+        <div class="activity-row"><span class="act-dot"></span>Дорога Задар → Сплит (~2 ч по прибрежной трассе)</div>
+        <div class="activity-row"><span class="act-dot"></span>Diocletian's Palace — прогулка по живому дворцу</div>
+        <div class="activity-row"><span class="act-dot"></span>Riva promenade — последний адриатический обед</div>
+        <div class="activity-row"><span class="act-dot"></span>Порт Сплит: посадка на Jadrolinija (~20:00)</div>
+        <div class="activity-row"><span class="act-dot"></span>Отплытие ~21:00 — курс на Анкону</div>
+      </div>
+    </div>
+    <div class="callouts fade-in">
+      <div class="callout callout-f">
+        <span class="callout-lbl">Паром</span>
+        Split → Ancona &nbsp;·&nbsp; Jadrolinija &nbsp;·&nbsp; ~10.5 ч ночного перехода &nbsp;·&nbsp; 1 машина + 4 пассажира + 2 каюты (2-berth cabin) &nbsp;·&nbsp; бронировать за 6–8 недель в июле–августе: <strong><a href="https://www.jadrolinija.hr" target="_blank" rel="noopener" style="color:var(--blue-dk)">jadrolinija.hr</a></strong>
+      </div>
+    </div>
+    <div class="gallery single fade-in">
+      <figure class="gphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Croatia-01239_-_The_Peristil_%289551533404%29.jpg/1280px-Croatia-01239_-_The_Peristil_%289551533404%29.jpg" alt="Диоклетианов дворец, Сплит" loading="lazy"><figcaption>Diocletian's Palace — живой Roman дворец 305 года</figcaption></figure>
+    </div>
+    <div class="night-box fade-in">
+      <span class="night-lbl">Ночлег</span>
+      <span class="night-val">Каюта парома Jadrolinija, курс на Ancona</span>
+      <span class="night-hint">Прибытие ~07:30 — Italia</span>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section id="tips" class="section tips-section">
+<div class="wrap">
+  <div class="section-head"><h2 class="serif">Советы и практика</h2><div class="section-head-line"></div></div>
+  <div class="tips-grid">
+    <div class="tips-card fade-in">
+      <div class="tips-head">Виньетки и платные дороги</div>
+      <div class="tips-body">
+        <div class="tip-row"><span class="tip-dot"></span>Швейцария: виньетка CHF 40 (~€44) — на весь год. Купить у границы или онлайн: ezv.admin.ch</div>
+        <div class="tip-row"><span class="tip-dot"></span>Австрия: 10-дневная виньетка €9.90 — asfinag.at или на заправке</div>
+        <div class="tip-row"><span class="tip-dot"></span>Grossglockner: ~€38 за машину — у ворот, карта или наличные</div>
+        <div class="tip-row"><span class="tip-dot"></span>Словения: виньетка €15 (7 дней) — evinjeta.dars.si или у границы</div>
+        <div class="tip-row"><span class="tip-dot"></span>Хорватия: платные автобаны (A1, A3) — наличными или картой у будки</div>
+      </div>
+    </div>
+    <div class="tips-card fade-in">
+      <div class="tips-head">Перевалы — сезон и статус</div>
+      <div class="tips-body">
+        <div class="tip-row"><span class="tip-dot"></span>Grimsel, Furka, Oberalp: alpenpaesse.ch/en — статус онлайн</div>
+        <div class="tip-row"><span class="tip-dot"></span>Albula: открыт май–ноябрь, туннель Albula — круглый год</div>
+        <div class="tip-row"><span class="tip-dot"></span>Stelvio: provinz.bz.it — открыт ~конец мая – октябрь</div>
+        <div class="tip-row"><span class="tip-dot"></span>Grossglockner: grossglockner.at — открыт ~май–октябрь</div>
+        <div class="tip-row"><span class="tip-dot"></span>Vršič: открыт с мая — бесплатный, без шлагбаума</div>
+      </div>
+    </div>
+    <div class="tips-card fade-in">
+      <div class="tips-head">Валюта и оплата</div>
+      <div class="tips-body">
+        <div class="tip-row"><span class="tip-dot"></span>Швейцария: CHF — карты везде, наличные почти не нужны</div>
+        <div class="tip-row"><span class="tip-dot"></span>Австрия, Словения, Хорватия, Италия: Euro</div>
+        <div class="tip-row"><span class="tip-dot"></span>Хорватия перешла на Euro в 2023 — никаких Kuna</div>
+        <div class="tip-row"><span class="tip-dot"></span>Бесконтактная оплата работает везде, Revolut удобен</div>
+      </div>
+    </div>
+    <div class="tips-card fade-in">
+      <div class="tips-head">Что взять в горы</div>
+      <div class="tips-body">
+        <div class="tip-row"><span class="tip-dot"></span>Термокуртка: на 2400 м в июле может быть +5°C</div>
+        <div class="tip-row"><span class="tip-dot"></span>SPF50: UV на высоте втрое сильнее, чем внизу</div>
+        <div class="tip-row"><span class="tip-dot"></span>Трекинговые ботинки: Козьяк, Vintgar, Trümmelbach</div>
+        <div class="tip-row"><span class="tip-dot"></span>Офлайн карты: Maps.me или OsmAnd, скачать заранее</div>
+        <div class="tip-row"><span class="tip-dot"></span>Пластырь и ибупрофен — горная болезнь редко, но бывает</div>
+      </div>
+    </div>
+    <div class="tips-card fade-in">
+      <div class="tips-head">Лучшие фототочки</div>
+      <div class="tips-body">
+        <div class="tip-row"><span class="tip-dot"></span>Bled: смотровая Ojstrica — рассвет, 30 мин подъём от Mlino</div>
+        <div class="tip-row"><span class="tip-dot"></span>Соча: лучше всего в полдень при солнце — цвет максимальный</div>
+        <div class="tip-row"><span class="tip-dot"></span>Хальштатт: берег напротив деревни (съезд у Obertraun)</div>
+        <div class="tip-row"><span class="tip-dot"></span>Grossglockner: Franz-Josefs-Höhe утром до 11:00 (облака)</div>
+        <div class="tip-row"><span class="tip-dot"></span>Стельвио: вид с вершины в обе стороны на 48 поворотов</div>
+      </div>
+    </div>
+    <div class="tips-card fade-in">
+      <div class="tips-head">Порядок бронирования</div>
+      <div class="tips-body">
+        <div class="tip-row"><span class="tip-dot"></span>1. Паром Split→Ancona — самое важное, 6–8 нед. вперёд</div>
+        <div class="tip-row"><span class="tip-dot"></span>2. Hallstatt — 2–3 месяца вперёд (мест почти нет)</div>
+        <div class="tip-row"><span class="tip-dot"></span>3. Lauterbrunnen и Bovec — 4–6 недель</div>
+        <div class="tip-row"><span class="tip-dot"></span>4. Все остальные — booking.com за 3–4 недели</div>
+        <div class="tip-row"><span class="tip-dot"></span>5. Виньетки — купить при въезде в страну</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="section" style="background:var(--stone2)">
+<div class="wrap">
+  <div class="section-head"><h2 class="serif">Что и где бронировать</h2><div class="section-head-line"></div></div>
+
+  <!-- Google Maps button -->
+  <div style="margin-bottom:2.5rem" class="fade-in">
+    <p style="font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--alpine);margin-bottom:.75rem">Маршрут на карте</p>
+    <a href="https://www.google.com/maps/dir/Berlin,+Germany/Rothenburg+ob+der+Tauber,+Germany/Titisee-Neustadt,+Germany/Interlaken,+Switzerland/Andermatt,+Switzerland/Pontresina,+Switzerland/Hall+in+Tirol,+Austria/Hallstatt,+Austria/Bled,+Slovenia/Bovec,+Slovenia/Piran,+Slovenia/Rovinj,+Croatia/Split,+Croatia/Ancona,+Italy"
+      target="_blank" rel="noopener"
+      style="display:inline-flex;align-items:center;gap:.6rem;background:var(--alpine);color:var(--white);padding:.75rem 1.4rem;border-radius:var(--r);font-size:.88rem;font-weight:500;transition:background .2s">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Открыть маршрут в Google Maps
+    </a>
+    <p style="font-size:.78rem;color:var(--mid);margin-top:.6rem">Berlin → Rothenburg → Titisee → Interlaken → Andermatt → Pontresina → Stelvio → Hall in Tirol → Hallstatt → Bled → Bovec → Piran → Rovinj → Split → Ancona</p>
+  </div>
+
+  <!-- Priority note -->
+  <div style="background:var(--alpine);color:var(--white);padding:1.1rem 1.5rem;border-radius:var(--r);margin-bottom:2rem;font-size:.88rem;line-height:1.7" class="fade-in">
+    <strong style="color:var(--terra2);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:.4rem">Порядок действий</strong>
+    <strong>1.</strong> Паром Split→Ancona (ограниченные каюты) &nbsp;·&nbsp;
+    <strong>2.</strong> Hallstatt (2–3 месяца вперёд!) &nbsp;·&nbsp;
+    <strong>3.</strong> Lauterbrunnen и Bovec &nbsp;·&nbsp;
+    <strong>4.</strong> Остальные ночлеги на Booking.com
+  </div>
+
+  <!-- Ferry table -->
+  <p style="font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--alpine);margin-bottom:.75rem">Паром — 1 переправа</p>
+  <div class="ov-table-wrap fade-in" style="margin-bottom:2rem">
+  <table class="ov-table">
+    <thead><tr><th>#</th><th>Маршрут</th><th>Сайт</th><th>Что выбирать</th><th>Цена ~</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="day-badge">1</span></td>
+        <td><strong>Split → Ancona</strong></td>
+        <td><a href="https://www.jadrolinija.hr" target="_blank" rel="noopener" style="color:var(--blue-dk);font-weight:500">jadrolinija.hr</a></td>
+        <td>Ночной рейс ~21:00 · 1 машина · 4 чел. · 2-berth cabin × 2</td>
+        <td>~€240–350</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Accommodation table -->
+  <p style="font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--alpine);margin-bottom:.75rem">Ночлеги — 14 ночей</p>
+  <div class="ov-table-wrap fade-in" style="margin-bottom:2rem">
+  <table class="ov-table">
+    <thead><tr><th>Ночь</th><th>Место</th><th>Где искать</th><th>Что вписать</th><th>Цена ~</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Rothenburg ob der Tauber</td><td><a href="https://www.booking.com/searchresults.html?ss=Rothenburg+ob+der+Tauber" target="_blank" rel="noopener" style="color:var(--blue-dk);font-weight:500">booking.com</a></td><td>"Rothenburg Gasthof" или "Pension"</td><td>~€80–120</td></tr>
+      <tr><td>2</td><td>Titisee-Neustadt</td><td><a href="https://www.booking.com/searchresults.html?ss=Titisee-Neustadt" target="_blank" rel="noopener" style="color:var(--blue-dk);font-weight:500">booking.com</a></td><td>"Titisee hotel" или "Pension am See"</td><td>~€80–110</td></tr>
+      <tr><td>3–4</td><td>Lauterbrunnen (2 ночи)</td><td><a href="https://www.booking.com/searchresults.html?ss=Lauterbrunnen" target="_blank" rel="noopener" style="color:var(--blue-dk);font-weight:500">booking.com</a></td><td>"Lauterbrunnen guesthouse" — за 4–6 нед.</td><td>~€100–150/ночь</td></tr>
+      <tr><td>5</td><td>Andermatt</td><td><a href="https://www.booking.com/searchresults.html?ss=Andermatt" target="_blank" rel="noopener" style="color:var(--blue-dk);font-weight:500">booking.com</a></td><td>"Andermatt hotel" — мест мало, бронировать рано</td><td>~€100–160</td></tr>
+      <tr><td>6</td><td>Pontresina (рядом Сен-Мориц)</td><td><a href="https://www.booking.com/searchresults.html?ss=Pontresina" target="_blank" rel="noopener" style="color:var(--blue-dk);font-weight:500">booking.com</a></td><td>"Pontresina" или "Celerina" — дешевле St. Moritz</td><td>~€110–160</td></tr>
+      <tr><td>7</td><td>Hall in Tirol (ок. Инсбрука)</td><td><a href="https://www.booking.com/searchresults.html?ss=Hall+in+Tirol" target="_blank" rel="noopener" style="color:var(--blue-dk);font-weight:500">booking.com</a></td><td>"Hall in Tirol Gasthof"</td><td>~€80–120</td></tr>
+      <tr><td>8</td><td>Hallstatt ⚠️</td><td><a href="https://www.booking.com/searchresults.html?ss=Hallstatt" target="_blank" rel="noopener" style="color:var(--blue-dk);font-weight:500">booking.com</a></td><td>"Hallstatt" — <strong>бронировать за 2–3 месяца</strong>. Если заполнено: Obertraun (10 мин.)</td><td>~€120–200</td></tr>
+      <tr><td>9</td><td>Bled, Словения</td><td><a href="https://www.booking.com/searchresults.html?ss=Bled+Slovenia" target="_blank" rel="noopener" style="color:var(--blue-dk);font-weight:500">booking.com</a></td><td>"Bled apartment" или "Bled guesthouse"</td><td>~€90–140</td></tr>
+      <tr><td>10–11</td><td>Bovec, Словения (2 ночи)</td><td><a href="https://www.booking.com/searchresults.html?ss=Bovec+Slovenia" target="_blank" rel="noopener" style="color:var(--blue-dk);font-weight:500">booking.com</a></td><td>"Bovec hotel" — за 4–6 нед.</td><td>~€80–130/ночь</td></tr>
+      <tr><td>12</td><td>Rovinj, Хорватия</td><td><a href="https://www.booking.com/searchresults.html?ss=Rovinj+Croatia" target="_blank" rel="noopener" style="color:var(--blue-dk);font-weight:500">booking.com</a></td><td>"Rovinj old town apartment"</td><td>~€90–150</td></tr>
+      <tr><td>13</td><td>Zadar, Хорватия</td><td><a href="https://www.booking.com/searchresults.html?ss=Zadar+Croatia" target="_blank" rel="noopener" style="color:var(--blue-dk);font-weight:500">booking.com</a></td><td>"Zadar old town" — много хороших апартаментов</td><td>~€80–120</td></tr>
+      <tr><td>14</td><td>Каюта парома</td><td colspan="2" style="color:var(--mid)">Включено в билет парома (2-berth cabin отдельно)</td><td>~€60–100</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Tolls table -->
+  <p style="font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--alpine);margin-bottom:.75rem">Виньетки и платные дороги</p>
+  <div class="ov-table-wrap fade-in" style="margin-bottom:2rem">
+  <table class="ov-table">
+    <thead><tr><th>Страна / объект</th><th>Где купить</th><th>Цена</th><th>Важно</th></tr></thead>
+    <tbody>
+      <tr><td>Швейцарская виньетка</td><td><a href="https://www.ezv.admin.ch" target="_blank" rel="noopener" style="color:var(--blue-dk)">ezv.admin.ch</a> или у границы</td><td>CHF 40 (~€44)</td><td>На весь календарный год</td></tr>
+      <tr><td>Австрийская виньетка</td><td><a href="https://www.asfinag.at" target="_blank" rel="noopener" style="color:var(--blue-dk)">asfinag.at</a> или заправки</td><td>€9.90 (10 дней)</td><td>Скачать на телефон или наклеить</td></tr>
+      <tr><td>Grossglockner Hochalpenstrasse</td><td>У ворот (cash or card)</td><td>~€38 за машину</td><td>Без предварительного бронирования</td></tr>
+      <tr><td>Словенская виньетка</td><td><a href="https://evinjeta.dars.si" target="_blank" rel="noopener" style="color:var(--blue-dk)">evinjeta.dars.si</a> или у границы</td><td>€15 (7 дней)</td><td>Электронная, номер авто привязывается</td></tr>
+      <tr><td>Хорватские автобаны</td><td>У будок на въезде</td><td>€5–20 за участок</td><td>Карта или наличные. Prijevod на юг — бесплатная дорога</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Budget -->
+  <div style="background:white;border-radius:var(--r);padding:1.25rem 1.5rem;box-shadow:var(--shadow)" class="fade-in">
+    <p style="font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--alpine);margin-bottom:.9rem">Ориентировочный бюджет на 4 человека</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.75rem;font-size:.85rem">
+      <div><span style="color:var(--mid)">Паром (Split→Ancona)</span><br><strong>~€280–350</strong></div>
+      <div><span style="color:var(--mid)">13 ночей</span><br><strong>~€1 100–1 750</strong></div>
+      <div><span style="color:var(--mid)">Топливо ~3 100 км</span><br><strong>~€380–480</strong></div>
+      <div><span style="color:var(--mid)">Виньетки + Grossglockner</span><br><strong>~€140–200</strong></div>
+      <div><span style="color:var(--mid)">Еда / прочее</span><br><strong>~€600–900</strong></div>
+      <div style="background:var(--stone2);padding:.5rem .75rem;border-radius:4px"><span style="color:var(--mid)">Итого</span><br><strong style="color:var(--alpine);font-size:1rem">~€2 500–3 680</strong></div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <em>Берлин → Адриатика 2026</em> &nbsp;·&nbsp; 5 стран &nbsp;·&nbsp; 14 дней &nbsp;·&nbsp; ~3 100 км &nbsp;·&nbsp; 5 перевалов &nbsp;·&nbsp; 1 паром &nbsp;·&nbsp; 0 крупных городов
+</footer>
+
+<script>
+const navLinks = document.querySelectorAll('.sticky-nav a');
+const sections = [];
+navLinks.forEach(a => {
+  const id = a.getAttribute('href').replace('#', '');
+  const el = document.getElementById(id);
+  if (el) sections.push({ el, a });
+});
+function updateNav() {
+  const scrollY = window.scrollY + 80;
+  let current = sections[0];
+  for (const s of sections) { if (s.el.offsetTop <= scrollY) current = s; }
+  navLinks.forEach(a => a.classList.remove('active'));
+  if (current) current.a.classList.add('active');
+}
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+fadeEls.forEach(el => observer.observe(el));
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+</script>
+</body>
+</html>
